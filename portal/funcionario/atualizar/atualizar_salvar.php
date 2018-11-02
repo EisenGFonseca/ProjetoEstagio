@@ -1,42 +1,68 @@
+<?php include('../../acesso_portal/check_login.php');?>
+
 <?php
+	include('../../../conexao/conexao.php');
 
-	include('conexao.php');
+		$fun_nome = filter_var($_POST['fun_nome']);
+		$fun_dataNas = filter_var($_POST['fun_dataNas']);
+		$fun_sexo = filter_var($_POST['fun_sexo']);
+		$fun_rg = filter_var($_POST['fun_rg']);
+		$fun_cpf = filter_var($_POST['fun_cpf']);
+		$fun_telefone = filter_var($_POST['fun_telefone']);
+		$fun_celular = filter_var($_POST['fun_celular']);
+		$fun_email = filter_var($_POST['fun_email']);
+		$fun_rua = filter_var($_POST['fun_rua']);
+		$fun_numero = filter_var($_POST['fun_numero']);
+		$fun_bairro = filter_var($_POST['fun_bairro']);
+		$fun_cep = filter_var($_POST['fun_cep']);
+		$fun_cidade = filter_var($_POST['fun_cidade']);
+		$fun_estado = filter_var($_POST['fun_estado']);
 
-	if(empty($_POST['pes_id']) || empty($_POST['pes_nome']) || empty($_POST['pes_dataNas']) || empty($_POST['pes_sexo']) || empty($_POST['pes_celular']) || empty($_POST['pes_estado'])){
-		header('location:contatos.php');
-	} else {
-
-		$pes_id = filter_var($_POST['pes_id']);
-		$pes_nome = filter_var($_POST['pes_nome']);
-		$pes_dataNas = filter_var($_POST['pes_dataNas']);
-		$pes_sexo = filter_var($_POST['pes_sexo']);
-		$pes_celular = filter_var($_POST['pes_celular']);
-		$pes_estado = filter_var($_POST['pes_estado']);
-
-		$sql = "UPDATE pessoa SET pes_nome = :pes_nome, pes_dataNas = :pes_dataNas, pes_sexo = :pes_sexo, pes_celular = :pes_celular, pes_estado = :pes_estado WHERE pes_id = :pes_id";
+		$sql = "UPDATE funcionario SET fun_nome = :fun_nome,
+																	 fun_dataNas = :fun_dataNas,
+																	 fun_sexo = :fun_sexo,
+																	 fun_rg = :fun_rg,
+																	 fun_cpf = :fun_cpf,
+																	 fun_telefone = :fun_telefone,
+																	 fun_celular = :fun_celular,
+																	 fun_email = :fun_email,
+																	 fun_rua = :fun_rua,
+																	 fun_numero = :fun_numero,
+																	 fun_bairro = :fun_bairro,
+																	 fun_cep = :fun_cep,
+																	 fun_cidade = :fun_cidade,
+																	 fun_estado = :fun_estado
+															WHERE fun_cod = :fun_cod";
 
 		$update = $conn->prepare($sql);
-		$update->bindParam(':pes_id', $pes_id);
-		$update->bindParam(':pes_nome', $pes_nome);
-		$update->bindParam(':pes_dataNas', $pes_dataNas);
-		$update->bindParam(':pes_sexo', $pes_sexo);
-		$update->bindParam(':pes_celular', $pes_celular);
-		$update->bindParam(':pes_estado', $pes_estado);
 
-		$resultado = 	$update->execute();
-	}
+		$update->bindParam(':fun_cod', $fun_cod);
+		$update->bindParam(':fun_nome', $fun_nome);
+		$update->bindParam(':fun_dataNas', $fun_dataNas);
+		$update->bindParam(':fun_sexo', $fun_sexo);
+		$update->bindParam(':fun_rg', $fun_rg);
+		$update->bindParam(':fun_cpf', $fun_cpf);
+		$update->bindParam(':fun_telefone', $fun_telefone);
+		$update->bindParam(':fun_celular', $fun_celular);
+		$update->bindParam(':fun_email', $fun_email);
+		$update->bindParam(':fun_rua', $fun_rua);
+		$update->bindParam(':fun_numero', $fun_numero);
+		$update->bindParam(':fun_bairro', $fun_bairro);
+		$update->bindParam(':fun_cep', $fun_cep);
+		$update->bindParam(':fun_cidade', $fun_cidade);
+		$update->bindParam(':fun_estado', $fun_estado);
 
+		$resultado = $update->execute();
 ?>
 
 <?php
-
-	$sql = "SELECT * FROM pessoa";
+	$sql = "SELECT * FROM funcionario";
 	$consulta = $conn->prepare($sql);
 	$consulta->execute();
 
 	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
-
 ?>
+
 
 	<!DOCTYPE html>
 	<html>
@@ -97,15 +123,15 @@
 						<tbody>
 							<?php foreach ($registros as $registro) { ?>
 								<tr>
-									<th scope="row"><?php echo $registro->pes_id; ?></th>
-									<td><?php echo $registro->pes_nome; ?></td>
-									<td><?php echo $registro->pes_dataNas; ?></td>
-									<td><?php echo $registro->pes_sexo; ?></td>
-									<td><?php echo $registro->pes_celular; ?></td>
-									<td><?php echo $registro->pes_estado; ?></td>
+									<th scope="row"><?php echo $registro->fun_cod; ?></th>
+									<td><?php echo $registro->fun_nome; ?></td>
+									<td><?php echo $registro->fun_dataNas; ?></td>
+									<td><?php echo $registro->fun_sexo; ?></td>
+									<td><?php echo $registro->fun_celular; ?></td>
+									<td><?php echo $registro->fun_estado; ?></td>
 									<td>
-										<a class="none" href="atualizar.php?pes_id=<?php echo $registro->pes_id; ?>"><button type="button" class="btn btn-warning"> Alterar </button></a>
-										<a class="none" href="deletar.php?pes_id=<?php echo $registro->pes_id; ?>"><button type="button" class="btn btn-danger"> Deletar </button></a>
+										<a class="none" href="atualizar.php?fun_cod=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-warning"> Alterar </button></a>
+										<a class="none" href="deletar.php?fun_cod=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-danger"> Deletar </button></a>
 									</td>
 								</tr>
 							<?php } ?>

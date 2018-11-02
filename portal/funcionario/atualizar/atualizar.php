@@ -1,4 +1,4 @@
-<?php include('/portal/acesso_portal/check_login.php');?>
+<?php include('../../acesso_portal/check_login.php');?>
 
 <?php
 	include('../../../conexao/conexao.php');
@@ -9,8 +9,7 @@
 
 		$fun_cod = filter_var($_GET['fun_cod']);
 
-		$sql = "SELECT * FROM funcionario WHERE fun_cod = :fun_cod";
-
+		$sql = "SELECT * FROM funcionario INNER JOIN admin WHERE fun_cod = :fun_cod";
 
 		$consulta = $conn->prepare($sql);
 		$consulta->bindParam(':fun_cod', $fun_cod);
@@ -89,9 +88,11 @@
 
       <section id="cadastrar">
         <div id="Conteiner-Formulario">
-          <h3 class="form">Formulario de Cadastro</h1>
+          <h3 class="form">Formulario de Atualização</h1>
 
-            <form class="needs-validation" novalidate name="Cadastro" action="cadastrar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
+					<input name="fun_cod" type="hidden" value="<?php echo $registro->fun_cod; ?>">
+
+						<form class="needs-validation" novalidate name="Cadastro" action="atualizar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
               <!-- nome -->
               <div class="form-group">
                 <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_nome; ?>"/>
@@ -134,7 +135,7 @@
               </div>
 							<!-- email -->
 							<div class="form-group">
-								<input id="email" name="adm_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_email; ?>"/>
+								<input id="email" name="fun_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_email; ?>"/>
 							</div>
               <div class="row row-form">
                 <!-- rua -->
@@ -168,36 +169,7 @@
                   <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_estado; ?>"/>
                 </div>
               </div>
-
-              <div class="row row-form">
-                <!-- funcao -->
-                <div class="cell-md-6 ajusta">
-                  <select name="fun_funcao"class="custom-select" id="funcao" onchange="optionCheck()">
-										<option selected><?php echo $registro->adm_perguntaSeg; ?></option>
-                    <option value="Gerente">Gerente</option>
-                    <option value="Sub-Chefe">Sub-Chefe</option>
-                    <option value="Chefe">Chefe</option>
-                    <option value="Administração">Administração</option>
-                  </select>
-                </div>
-                <!-- Salario -->
-                <div class="cell-md-6">
-                  <input id="salario" name="fun_salario" type="text" class="form-control" placeholder="Salário" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_salario; ?>"/>
-                </div>
-              </div>
-
-              <div class="row row-form">
-                <!-- senha -->
-                <div class="cell-md-6">
-                  <input id="senha" name="adm_senha" type="password" class="form-control" placeholder="Senha" class="form-control" id="validationCustom01" required disabled="disabled" value="<?php echo $registro->adm_senha; ?>"/>
-                </div>
-							<!-- conf_senha -->
-							<div class="cell-md-6">
-								<input id="conf_senha" name="adm_senha" type="password" class="form-control" placeholder="Confirma Senha" class="form-control" id="validationCustom01" required disabled="disabled" value="<?php echo $registro->adm_senha; ?>"/>
-							</div>
-						</div>
-
-						<div class="botoes_form">
+							<div class="botoes_form">
 							<button type="submit"class="btn btn-success">Enviar</button>
 							<button type="reset"class="btn btn-warning" >Limpar</button>
 						</div>

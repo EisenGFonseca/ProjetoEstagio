@@ -32,12 +32,11 @@ body.body1{
 }
 
 #container-contatos {
-  width: 80%;
-  background-color: white;
-  box-shadow:0 0 10px 1px rgba(0,0,0,0.06);
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 35px;
+    width: 97%;
+    background-color: white;
+    box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+    margin-left: auto;
+    margin-right: 2.5%;
 }
 
 #Conteiner-Formulario {
@@ -87,12 +86,20 @@ body.body1{
   margin-top: 0px;
 }
 
-#cadastrar {
+/* #cadastrar {
   padding: 10px 0px 20px 20px;
   background-color: #fff;
   width: 70%;
   margin: 0 auto;
   margin-top: 30px;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+} */
+
+#cadastrar {
+  padding: 10px 0px 20px 20px;
+  background-color: #fff;
+  width: 97%;
+  right: 1%;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
 }
 
@@ -135,14 +142,14 @@ body.body1{
   padding-right: 20%;
 }
 
-.box {
+/* .box {
   width: 80%;
   padding: 30px;
   margin: 0 auto;
   text-align: center;
   background-color: #fff;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
-}
+} */
 
 .entrar-menu{
   margin: auto;
@@ -570,7 +577,7 @@ p.footer_font {
     width: 100%;
   }
 
-  #Conteiner-Conteudo{
+  #Conteiner-Conteudo, #lateral{
     float: none;
     width: auto;
   }

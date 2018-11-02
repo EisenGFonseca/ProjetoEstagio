@@ -25,17 +25,7 @@
   <body class="body1">
 
     <!-- MENU -->
-    <div data-role="appbar" data-expand-point="md">
-      <a href="#" class="brand no-hover">
-        <img src="https://www.planet-source-code.com/vb/2010Redesign/images/LangugeHomePages/HTML5_CSS_JavaScript.png" height="40" class="d-inline-block align-top" alt="">
-      </a>
-      <ul class="app-bar-menu">
-        <a class="btn btn-light" href="index.php">Início</a>
-        <a class="btn btn-light" href="#">Contato</a>
-        <a class="btn btn-light" href="sobre/sobre.php">Sobre</a>
-        <a class="btn btn-light" href="portal/index_portal.php">Home Admin</a>
-      </ul> <!-- app-bar-menu -->
-    </div>
+    <?php include('inc/menu.php'); ?>
     <!-- END-MENU -->
 
     <!-- CORPO -->

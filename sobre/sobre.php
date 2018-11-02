@@ -23,17 +23,7 @@
   <body class="body1">
 
     <!-- MENU -->
-    <div data-role="appbar" data-expand-point="md">
-      <a href="#" class="brand no-hover">
-        <img src="https://www.planet-source-code.com/vb/2010Redesign/images/LangugeHomePages/HTML5_CSS_JavaScript.png" height="40" class="d-inline-block align-top" alt="">
-      </a>
-      <ul class="app-bar-menu">
-        <a class="btn btn-light" href="../index.php">Início</a>
-        <a class="btn btn-light" href="#">Contato</a>
-        <a class="btn btn-light" href="sobre.php">Sobre</a>
-        <a class="btn btn-light" href="../portal/index_portal.php">Home Admin</a>
-      </ul> <!-- app-bar-menu -->
-    </div>
+    <?php include('../inc/menu.php');?>
     <!-- END-MENU -->
 
     <!-- CORPO -->
@@ -64,40 +54,21 @@
                 É um sistema de gestão de empresa bastante prático e amigável até para o usuários com pouca habilidade com computadores.<br />
                 Uma das de suas características de destaque é a sua interface agradável, menus e submenus definidos que facilitam o trabalho do usuário.<br />
                 <b>Adminstradores</b> de pequenas e grandes empresas têm acesso aos dados cruciais de seus empregados cadastrados. </p>
-            </div> <!-- row row-ef -->
-          </div> <!-- container ir -->
-        </section> <!-- sobre -->
-      </div> <!-- sub -->
+              </div> <!-- row row-ef -->
+            </div> <!-- container ir -->
+          </section> <!-- sobre -->
+        </div> <!-- sub -->
 
-    </div><!-- Conteiner-Conteudo -->
-  </div> <!-- Conteiner-Principal -->
+      </div><!-- Conteiner-Conteudo -->
+    </div> <!-- Conteiner-Principal -->
 
-    <div class="footer">
-      <p class="footer_font">@2018 Foperoma</p>
-    </div>
+    <!-- FOOTER -->
+    <?php include('../inc/footer.php');?>
+    <!-- END FOOTER -->
 
     <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- JS METRO UI -->
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-
-    <!-- BOOSTRAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-    <!-- Deslizar Pagina -->
-    <script>
-    $('.ir a[href^="#"]').on('click', function(e) {
-      e.preventDefault();
-      var id = $(this).attr('href'),
-      targetOffset = $(id).offset().top;
-
-      $('html, body').animate({
-        scrollTop: targetOffset - 100
-      }, 500);
-    });
-    </script>
-    <!-- . -->
+    <?php include('../inc/js.php');?>
+    <!-- END JS -->
 
   </body>
 </html>
