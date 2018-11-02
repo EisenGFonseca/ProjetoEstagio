@@ -86,21 +86,20 @@ body.body1{
   margin-top: 0px;
 }
 
-/* #cadastrar {
-  padding: 10px 0px 20px 20px;
-  background-color: #fff;
-  width: 70%;
-  margin: 0 auto;
-  margin-top: 30px;
-  box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
-} */
-
 #cadastrar {
   padding: 10px 0px 20px 20px;
   background-color: #fff;
   width: 97%;
   right: 1%;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+}
+
+#fulano{
+  padding: 10px 0px 20px 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+  width: 101%;
+  right: 2%;
 }
 
 #img-fundo{
@@ -403,6 +402,19 @@ h5.sub_titulo{
   padding-bottom: 80px;
 }
 
+.esq-preta{
+    text-align-last: left;
+    color: black;
+}
+.barra{
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 25px;
+}
+
+.barra-sub {
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 5px;
+}
 /* fim-fontes */
 
 /* Formulario */

@@ -35,11 +35,8 @@ create database if not exists stanlee;
 		on update cascade on delete restrict
 	);
 
-    insert into funcionario values (null, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'São Paulo','RR', 'Administração', '0.000,00');
+    insert into funcionario values (null, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
     insert into admin values (null, 'admin', last_insert_id());
-
-	select * from funcionario;
-	select * from admin;
 
 DROP PROCEDURE IF EXISTS atualiza_fun;
 DELIMITER $$
@@ -58,13 +55,9 @@ DELIMITER $$
 									 fun_cidade varchar(100),
 									 fun_estado varchar(100),
 									 fun_funcao varchar(90),
-									 fun_salario varchar(20)),
-									 adm_senha varchar(100)
+									 fun_salario varchar(20))
 		BEGIN
-			UPDATE funcionario
-            INNER JOIN admin
-				ON admin.fun_cod_fk = funcionario.fun_cod
-            SET
+			UPDATE funcionario SET
 				funcionario.fun_nome = fun_nome,
 				funcionario.fun_dataNas = fun_dataNas,
 				funcionario.fun_sexo = fun_sexo,
@@ -80,11 +73,13 @@ DELIMITER $$
 				funcionario.fun_cidade = fun_cidade,
 				funcionario.fun_estado = fun_estado,
 				funcionario.fun_funcao = fun_funcao,
-				funcionario.fun_salario = fun_salario,
-				admin.adm_senha = adm_senha
-
-			WHERE fun_cod = 1;
+				funcionario.fun_salario = fun_salario
+			WHERE 
+            fun_cod = 1;
 		END ;
 $$ DELIMITER ;
 
-CALL atualiza_fun('Piracanjuba', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'São Paulo','RR', 'Administração', '0.000,00');
+CALL atualiza_fun('Piracanjuba', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Rio de janeiro','RR', 'Administrador', '0.000,00');
+
+select * from funcionario inner join admin;
+select * from funcionario inner join admin WHERE funcionario.fun_cod = 1;
