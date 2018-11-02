@@ -1,3 +1,5 @@
+<?php include('../../acesso_portal/check_login.php');?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -23,184 +25,146 @@
   <body class="body1">
 
     <!-- MENU -->
-    <div data-role="appbar" data-expand-point="md">
-      <a href="#" class="brand no-hover">
-        <img src="../../../../img/Logo - Pestalozzi.png" height="30" class="d-inline-block align-top" alt="">
-      </a>
-
-      <div data-role="appbar" data-expand-point="md">
-        <button type="button" class="hamburger menu-down hidden">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-        <a href="#" class="brand no-hover">
-          <img src="https://www.planet-source-code.com/vb/2010Redesign/images/LangugeHomePages/HTML5_CSS_JavaScript.png" height="40" class="d-inline-block align-top" alt="">
-        </a>
-        <ul class="app-bar-menu">
-          <a class="btn btn-light" href="../../../../index.php">Início</a>
-          <a class="btn btn-light" href="#">Contato</a>
-          <a class="btn btn-light" href="../../../sobre/sobre.php">Sobre</a>
-          <a class="btn btn-light" href="../../index_portal.php">Home Admin</a>
-        </ul>
-
-        <ul class="app-bar-menu ml-auto collapsed" style="">
-          <a class="btn btn-light" href="acesso_portal/logout.php"><b>USUÁRIO</b></a>
-          <a class="btn btn-danger" href="acesso_portal/logout.php">Sair</a>
-        </ul>
-      </div>
-
-    </div> <!-- END-MENU -->
+    <?php include('../../../inc/menu.php'); ?>
+    <!-- END-MENU -->
 
     <!-- CORPO -->
     <div id="Conteiner-Principal">
       <h3 class=""><b>Contatos</b> > Cadastrar</h3>
-      <div class='imagem-capa capa-cadastrar'>
-        <div class='texto-capa texto-sobre'>
-          <h1 class="hello">Cadastrar Funcionário</h1>
-          <h2 class="index hello">Preencha o Formulario abaixo</h2>
-          <h3 class="index hello">Caso queira cadastrar um adm, ative o segundo Formulario</h3>
-        </div> <!-- imagem-capa -->
-      </div> <!-- texto-capa -->
+    <div class='imagem-capa capa-cadastrar'>
+      <div class='texto-capa texto-sobre'>
+        <h1 class="hello">Cadastrar Funcionário</h1>
+        <h2 class="index hello">Preencha o Formulario abaixo</h2>
+        <h3 class="index hello">Caso queira cadastrar um adm, ative o segundo Formulario</h3>
+      </div> <!-- imagem-capa -->
+    </div> <!-- texto-capa -->
 
-      <section id="cadastrar">
-        <div id="Conteiner-Formulario">
-          <h3 class="form">Formulario de Cadastro</h1>
+    <section id="cadastrar">
+      <div id="Conteiner-Formulario">
+        <h3 class="form">Formulario de Cadastro</h1>
 
-            <form class="needs-validation" novalidate name="Cadastro" action="cadastrar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
-              <!-- nome -->
-              <div class="form-group">
-                <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required>
+          <form class="needs-validation" novalidate name="Cadastro" action="cadastrar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
+            <!-- nome -->
+            <div class="form-group">
+              <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required>
+            </div>
+            <div class="row row-form">
+              <!-- datanas -->
+              <div class="cell-md-6 ajusta">
+                <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento"  class="form-control" id="validationCustom01" required/>
               </div>
-              <div class="row row-form">
-                <!-- datanas -->
-                <div class="cell-md-6 ajusta">
-                  <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento"  class="form-control" id="validationCustom01" required/>
-                </div>
-                <!-- sexo -->
-                <div class="cell-md-6">
-                  <select name="fun_sexo"class="custom-select" id="inputGroupSelect02">
-                    <option value="null" selected>Sexo</option>
-                    <option value="Masculino">Masculino</option>
-                    <option value="Feminino">Feminino</option>
-                  </select>
-                </div>
+              <!-- sexo -->
+              <div class="cell-md-6">
+                <select name="fun_sexo"class="custom-select" id="inputGroupSelect02">
+                  <option value="null" selected>Sexo</option>
+                  <option value="Masculino">Masculino</option>
+                  <option value="Feminino">Feminino</option>
+                </select>
               </div>
+            </div>
 
-              <div class="row row-form">
-                <!-- rg -->
-                <div class="cell-md-6 ajusta">
-                  <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required>
-                </div>
-                <!-- cpf -->
-                <div class="cell-md-6">
-                  <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required>
-                </div>
+            <div class="row row-form">
+              <!-- rg -->
+              <div class="cell-md-6 ajusta">
+                <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required>
               </div>
-
-              <div class="row row-form">
-                <!-- telefone -->
-                <div class="cell-md-6 ajusta">
-                  <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required>
-                </div>
-                <!-- celular -->
-                <div class="cell-md-6">
-                  <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required>
-                </div>
+              <!-- cpf -->
+              <div class="cell-md-6">
+                <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required>
               </div>
+            </div>
 
-              <div class="row row-form">
-                <!-- rua -->
-                <div class="cell-md-6 ajusta">
-                  <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required>
-                </div>
-                <!-- numero -->
-                <div class="cell-md-6">
-                  <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required>
-                </div>
+            <div class="row row-form">
+              <!-- telefone -->
+              <div class="cell-md-6 ajusta">
+                <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required>
               </div>
-
-              <div class="row row-form">
-                <!-- bairro -->
-                <div class="cell-md-6 ajusta">
-                  <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required>
-                </div>
-                <!-- cep -->
-                <div class="cell-md-6">
-                  <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required>
-                </div>
+              <!-- celular -->
+              <div class="cell-md-6">
+                <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required>
               </div>
+            </div>
 
-              <div class="row row-form">
-                <!-- cidade -->
-                <div class="cell-md-6 ajusta">
-                  <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required>
-                </div>
-                <!-- estado -->
-                <div class="cell-md-6">
-                  <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required>
-                </div>
+            <!-- email -->
+            <div class="form-group">
+              <input name="fun_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required >
+            </div>
+
+            <div class="row row-form">
+              <!-- rua -->
+              <div class="cell-md-6 ajusta">
+                <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required>
               </div>
-
-              <div class="row row-form">
-                <!-- funcao -->
-                <div class="cell-md-6 ajusta">
-                  <select name="fun_funcao"class="custom-select" id="funcao" onchange="optionCheck()">
-                    <option value="null" selected>Função</option>
-                    <option value="Gerente">Gerente</option>
-                    <option value="Sub-Chefe">Sub-Chefe</option>
-                    <option value="Chefe">Chefe</option>
-                    <option value="Administração">Administrador</option>
-                  </select>
-                </div>
-                <!-- Salario -->
-                <div class="cell-md-6">
-                  <input id="salario" name="fun_salario" type="text" class="form-control" placeholder="Salário" class="form-control" id="validationCustom01" required>
-                </div>
+              <!-- numero -->
+              <div class="cell-md-6">
+                <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required>
               </div>
+            </div>
 
-              <div class="row row-form">
-                <!-- email -->
-                <div class="cell-md-6 ajusta">
-                  <input id="email" name="adm_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required disabled="disabled">
-                </div>
-                <!-- senha -->
-                <div class="cell-md-6">
-                  <input id="senha" name="adm_senha"type="password" class="form-control" placeholder="Senha" class="form-control" id="validationCustom01" required disabled="disabled">
-                </div>
+            <div class="row row-form">
+              <!-- bairro -->
+              <div class="cell-md-6 ajusta">
+                <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required>
               </div>
-
-              <div class="row row-form">
-                <!-- pergunta -->
-                <div class="cell-md-6 ajusta">
-                  <select id="pergunta" name="adm_pergunta"class="custom-select" disabled="disabled">
-                    <option value="null" selected>Pergunta de Segurança</option>
-                    <option value="Prato">Qual é seu prato preferido?</option>
-                    <option value="Animal">Qual foi o nome do seu primeiro animal de estimação?</option>
-                    <option value="Celular">Qual foi seu primeiro número de celular?</option>
-                    <option value="Mãe">Qual é o nome de solteira da sua mãe?</option>
-                  </select>
-                </div>
-                <!-- resposta -->
-                <div class="cell-md-6">
-                  <input id="resposta" name="adm_resposta"type="text" class="form-control" placeholder="Resposta" class="form-control" id="validationCustom01" required disabled="disabled">
-                </div>
+              <!-- cep -->
+              <div class="cell-md-6">
+                <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required>
               </div>
+            </div>
 
-              <div class="botoes_form">
-                <button type="submit"class="btn btn-success">Enviar</button>
-                <button type="reset"class="btn btn-warning" >Limpar</button>
+            <div class="row row-form">
+              <!-- cidade -->
+              <div class="cell-md-6 ajusta">
+                <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required>
               </div>
+              <!-- estado -->
+              <div class="cell-md-6">
+                <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required>
+              </div>
+            </div>
 
-            </form>
-          </div><!--Conteiner_Formulário-->
-        </section> <!-- sobre -->
-      </div><!-- Conteiner-Conteudo -->
-    </div> <!-- Conteiner-Principal -->
+            <div class="row row-form">
+              <!-- funcao -->
+              <div class="cell-md-6 ajusta">
+                <select name="fun_funcao"class="custom-select" id="funcao" onchange="optionCheck()">
+                  <option value="null" selected>Função</option>
+                  <option value="Gerente">Gerente</option>
+                  <option value="Sub-Chefe">Sub-Chefe</option>
+                  <option value="Chefe">Chefe</option>
+                  <option value="Administrador">Administrador</option>
+                </select>
+              </div>
+              <!-- Salario -->
+              <div class="cell-md-6">
+                <input id="salario" name="fun_salario" type="text" class="form-control" placeholder="Salário" class="form-control" id="validationCustom01" required>
+              </div>
+            </div>
 
-    <div class="footer">
-      <p class="footer_font">@2018 EisenFonseca</p>
-    </div>
+            <div class="row row-form">
+              <!-- senha -->
+              <div class="cell-md-6 ajusta">
+                <input id="senha" name="adm_senha" type="password" class="form-control" placeholder="Senha" class="form-control" id="validationCustom01" required disabled="disabled">
+              </div>
+              <!-- senha -->
+              <div class="cell-md-6">
+                <input id="conf_senha" name="adm_senha" type="password" class="form-control" placeholder="Confirmar Senha" class="form-control" id="validationCustom01" required disabled="disabled">
+              </div>
+            </div>
+
+            <div class="botoes_form">
+              <button type="submit"class="btn btn-success">Enviar</button>
+              <button type="reset"class="btn btn-warning" >Limpar</button>
+            </div>
+
+          </form>
+        </div><!--Conteiner_Formulário-->
+      </section> <!-- sobre -->
+    </div><!-- Conteiner-Conteudo -->
+  </div> <!-- Conteiner-Principal -->
+
+  <div class="footer">
+    <p class="footer_font">@2018 EisenFonseca</p>
+  </div>
 
     <!-- JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
@@ -324,13 +288,13 @@
     <!-- Habilita/Desbilita -->
     <script type="text/javascript">
     document.getElementById( 'funcao' ).addEventListener( 'change', function(){
-      if(this.value === 'Administração') {
-        $( "#email" ).prop( "disabled", false );
+      if(this.value === 'Administrador') {
+        $( "#conf_senha" ).prop( "disabled", false );
         $( "#senha" ).prop( "disabled", false );
         $( "#pergunta" ).prop( "disabled", false );
         $( "#resposta" ).prop( "disabled", false );
       } else {
-        $( "#email" ).prop( "disabled", true );
+        $( "#conf_senha" ).prop( "disabled", true );
         $( "#senha" ).prop( "disabled", true );
         $( "#pergunta" ).prop( "disabled", true );
         $( "#resposta" ).prop( "disabled", true );

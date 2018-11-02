@@ -31,7 +31,7 @@
         <a class="btn btn-light" href="../index.php">Início</a>
         <a class="btn btn-light" href="#">Contato</a>
         <a class="btn btn-light" href="sobre.php">Sobre</a>
-        <a class="btn btn-light" href="../portal/index_portal.php">Entrar</a>
+        <a class="btn btn-light" href="../portal/index_portal.php">Home Admin</a>
       </ul> <!-- app-bar-menu -->
     </div>
     <!-- END-MENU -->

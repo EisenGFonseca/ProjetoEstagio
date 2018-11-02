@@ -1,4 +1,5 @@
 <?php include('acesso_portal/check_login.php');?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,36 +26,9 @@
 
   <body class="body1">
 
-
     <!-- MENU -->
-    <div data-role="appbar" data-expand-point="md">
-      <a href="#" class="brand no-hover">
-        <img src="../../../img/Logo - Pestalozzi.png" height="30" class="d-inline-block align-top" alt="">
-      </a>
-
-      <div data-role="appbar" data-expand-point="md">
-        <button type="button" class="hamburger menu-down hidden">
-          <span class="line"></span>
-          <span class="line"></span>
-          <span class="line"></span>
-        </button>
-        <a href="#" class="brand no-hover">
-          <img src="https://www.planet-source-code.com/vb/2010Redesign/images/LangugeHomePages/HTML5_CSS_JavaScript.png" height="40" class="d-inline-block align-top" alt="">
-        </a>
-        <ul class="app-bar-menu">
-          <a class="btn btn-light" href="../../../index.php">Início</a>
-          <a class="btn btn-light" href="#">Contato</a>
-          <a class="btn btn-light" href="../../sobre/sobre.php">Sobre</a>
-          <a class="btn btn-light" href="index_portal.php">Home Admin</a>
-        </ul>
-
-        <ul class="app-bar-menu ml-auto collapsed" style="">
-          <a class="btn btn-light" href="acesso_portal/logout.php"><b>USUÁRIO</b></a>
-          <a class="btn btn-danger" href="acesso_portal/logout.php">Sair</a>
-       </ul>
-      </div>
-
-    </div> <!-- END-MENU -->
+    <?php include('../inc/menu.php'); ?>
+    <!-- END-MENU -->
 
     <!-- CORPO -->
     <div id="Conteiner-Principal">
@@ -70,17 +44,13 @@
           </div> <!-- imagem-capa -->
         </div> <!-- texto-capa -->
 
-
         <div id="wrapper">
-          <!-- inicio 1 -->
           <div id="pagebody">
             <div id="content">
-              <!-- inicio 2 -->
-
-              <h1 class="linha_baixo">Ultimas Atualizações</h1>
+                <h1 class="linha_baixo">Ultimas Atualizações</h1>
               <br />
               <h2>Ultimo Cliente cadastrado</h2>
-              <span><b><?php echo $registro->fun_cod; ?></b>, cargo.</span>
+              <span><b></b>, cargo.</span>
               <br />
               <br />
               <h2> Total de Funcionários </h2>
@@ -103,23 +73,14 @@
                   </ul>
                 </div>
 
-                <div class="item">
-                  <h3 class="link-titulo">Importantes</h3>
-                  <ul class="box">
-                    <li><a href="#" class="servicos_link"> TESTE </a></li>
-                  </ul>
-                </div>
-
               </div>
             </div>
           </div>
 
-
-
         </div><!-- Conteiner-Conteudo -->
       </div> <!-- Conteiner-Principal -->
       <div class="footer">
-        <p class="footer_font">@2018 Foperoma</p>
+        <p class="footer_font">@2018 EisenFonseca</p>
       </div>
 
       <!-- JS -->

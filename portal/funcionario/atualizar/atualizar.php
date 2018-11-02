@@ -1,13 +1,16 @@
+<?php include('/portal/acesso_portal/check_login.php');?>
+
 <?php
 	include('../../../conexao/conexao.php');
 
 	if(empty($_GET['fun_cod'])){
-		header('location:contatos.php');
+		header('location:../lista.php');
 	}else{
 
 		$fun_cod = filter_var($_GET['fun_cod']);
 
-		$sql = "SELECT * FROM pessoa WHERE fun_cod = :fun_cod";
+		$sql = "SELECT * FROM funcionario WHERE fun_cod = :fun_cod";
+
 
 		$consulta = $conn->prepare($sql);
 		$consulta->bindParam(':fun_cod', $fun_cod);
@@ -63,10 +66,12 @@
           <a class="btn btn-light" href="../../index_portal.php">Home Admin</a>
         </ul>
 
-        <ul class="app-bar-menu ml-auto collapsed" style="">
-          <a class="btn btn-light" href="acesso_portal/logout.php"><b>USUÁRIO</b></a>
-          <a class="btn btn-danger" href="acesso_portal/logout.php">Sair</a>
-        </ul>
+				<?php if(isset($_SESSION['user_nome'])) : ?>
+          <ul class="app-bar-menu ml-auto collapsed" style="">
+            <a class="btn btn-light" href="#"><b><?php echo $_SESSION['user_nome'] ?></b></a>
+            <a class="btn btn-danger" href="/portal/acesso_portal/logout.php">Sair</a>
+          </ul>
+        <?php endif ?>
       </div>
 
     </div> <!-- END-MENU -->
@@ -99,7 +104,7 @@
                 <!-- sexo -->
                 <div class="cell-md-6">
                   <select name="fun_sexo"class="custom-select" id="inputGroupSelect02">
-                    <option value="null" selected>Sexo</option>
+										<option selected><?php echo $registro->fun_sexo; ?></option>
                     <option value="Masculino">Masculino</option>
                     <option value="Feminino">Feminino</option>
                   </select>
@@ -109,55 +114,58 @@
               <div class="row row-form">
                 <!-- rg -->
                 <div class="cell-md-6 ajusta">
-                  <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required>
+                  <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rg; ?>"/>
                 </div>
                 <!-- cpf -->
                 <div class="cell-md-6">
-                  <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required>
+                  <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cpf; ?>"/>
                 </div>
               </div>
 
               <div class="row row-form">
                 <!-- telefone -->
                 <div class="cell-md-6 ajusta">
-                  <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required>
+                  <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_telefone; ?>"/>
                 </div>
                 <!-- celular -->
                 <div class="cell-md-6">
-                  <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required>
+                  <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_celular; ?>"/>
                 </div>
               </div>
-
+							<!-- email -->
+							<div class="form-group">
+								<input id="email" name="adm_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_email; ?>"/>
+							</div>
               <div class="row row-form">
                 <!-- rua -->
                 <div class="cell-md-6 ajusta">
-                  <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required>
+                  <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rua; ?>"/>
                 </div>
                 <!-- numero -->
                 <div class="cell-md-6">
-                  <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required>
+                  <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_numero; ?>"/>
                 </div>
               </div>
 
               <div class="row row-form">
                 <!-- bairro -->
                 <div class="cell-md-6 ajusta">
-                  <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required>
+                  <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_bairro; ?>"/>
                 </div>
                 <!-- cep -->
                 <div class="cell-md-6">
-                  <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required>
+                  <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cep; ?>"/>
                 </div>
               </div>
 
               <div class="row row-form">
                 <!-- cidade -->
                 <div class="cell-md-6 ajusta">
-                  <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required>
+                  <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cidade; ?>"/>
                 </div>
                 <!-- estado -->
                 <div class="cell-md-6">
-                  <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required>
+                  <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_estado; ?>"/>
                 </div>
               </div>
 
@@ -165,198 +173,181 @@
                 <!-- funcao -->
                 <div class="cell-md-6 ajusta">
                   <select name="fun_funcao"class="custom-select" id="funcao" onchange="optionCheck()">
-                    <option value="null" selected>Função</option>
+										<option selected><?php echo $registro->adm_perguntaSeg; ?></option>
                     <option value="Gerente">Gerente</option>
                     <option value="Sub-Chefe">Sub-Chefe</option>
                     <option value="Chefe">Chefe</option>
-                    <option value="Administração">Administrador</option>
+                    <option value="Administração">Administração</option>
                   </select>
                 </div>
                 <!-- Salario -->
                 <div class="cell-md-6">
-                  <input id="salario" name="fun_salario" type="text" class="form-control" placeholder="Salário" class="form-control" id="validationCustom01" required>
+                  <input id="salario" name="fun_salario" type="text" class="form-control" placeholder="Salário" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_salario; ?>"/>
                 </div>
               </div>
 
               <div class="row row-form">
-                <!-- email -->
-                <div class="cell-md-6 ajusta">
-                  <input id="email" name="adm_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required disabled="disabled">
-                </div>
                 <!-- senha -->
                 <div class="cell-md-6">
-                  <input id="senha" name="adm_senha"type="password" class="form-control" placeholder="Senha" class="form-control" id="validationCustom01" required disabled="disabled">
+                  <input id="senha" name="adm_senha" type="password" class="form-control" placeholder="Senha" class="form-control" id="validationCustom01" required disabled="disabled" value="<?php echo $registro->adm_senha; ?>"/>
                 </div>
-              </div>
+							<!-- conf_senha -->
+							<div class="cell-md-6">
+								<input id="conf_senha" name="adm_senha" type="password" class="form-control" placeholder="Confirma Senha" class="form-control" id="validationCustom01" required disabled="disabled" value="<?php echo $registro->adm_senha; ?>"/>
+							</div>
+						</div>
 
-              <div class="row row-form">
-                <!-- pergunta -->
-                <div class="cell-md-6 ajusta">
-                  <select id="pergunta" name="adm_pergunta"class="custom-select" disabled="disabled">
-                    <option value="null" selected>Pergunta de Segurança</option>
-                    <option value="Prato">Qual é seu prato preferido?</option>
-                    <option value="Animal">Qual foi o nome do seu primeiro animal de estimação?</option>
-                    <option value="Celular">Qual foi seu primeiro número de celular?</option>
-                    <option value="Mãe">Qual é o nome de solteira da sua mãe?</option>
-                  </select>
-                </div>
-                <!-- resposta -->
-                <div class="cell-md-6">
-                  <input id="resposta" name="adm_resposta"type="text" class="form-control" placeholder="Resposta" class="form-control" id="validationCustom01" required disabled="disabled">
-                </div>
-              </div>
+						<div class="botoes_form">
+							<button type="submit"class="btn btn-success">Enviar</button>
+							<button type="reset"class="btn btn-warning" >Limpar</button>
+						</div>
 
-              <div class="botoes_form">
-                <button type="submit"class="btn btn-success">Enviar</button>
-                <button type="reset"class="btn btn-warning" >Limpar</button>
-              </div>
+						</form>
+					</div><!--Conteiner_Formulário-->
+				</section> <!-- sobre -->
+			</div><!-- Conteiner-Conteudo -->
+		</div> <!-- Conteiner-Principal -->
 
-            </form>
-          </div><!--Conteiner_Formulário-->
-        </section> <!-- sobre -->
-      </div><!-- Conteiner-Conteudo -->
-    </div> <!-- Conteiner-Principal -->
+		<div class="footer">
+			<p class="footer_font">@2018 EisenFonseca</p>
+		</div>
 
-    <div class="footer">
-      <p class="footer_font">@2018 EisenFonseca</p>
-    </div>
+		<!-- JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<!-- JS METRO UI -->
+		<script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
 
-    <!-- JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <!-- JS METRO UI -->
-    <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
+		<!-- BOOSTRAP -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 
-    <!-- BOOSTRAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<!-- Deslizar Pagina -->
+		<script>
+		$('.ir a[href^="#"]').on('click', function(e) {
+			e.preventDefault();
+			var id = $(this).attr('href'),
+			targetOffset = $(id).offset().top;
 
-    <!-- Deslizar Pagina -->
-    <script>
-    $('.ir a[href^="#"]').on('click', function(e) {
-      e.preventDefault();
-      var id = $(this).attr('href'),
-      targetOffset = $(id).offset().top;
+			$('html, body').animate({
+				scrollTop: targetOffset - 100
+			}, 500);
+		});
+		</script>
+		<!-- . -->
 
-      $('html, body').animate({
-        scrollTop: targetOffset - 100
-      }, 500);
-    });
-    </script>
-    <!-- . -->
+		<!-- javascript -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
 
-    <!-- javascript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-    <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.12/jquery.mask.min.js"></script>
+		<!-- AutoComplete -->
+		<script>
+		$(function() {
+			var estados = [
+				"Acre",
+				"Alagoas",
+				"Amapa",
+				"Amazonas",
+				"Bahia",
+				"Ceará",
+				"Destrito Federal",
+				"Espirito Santo",
+				"Goias",
+				"Maranhao",
+				"Mato Grosso",
+				"Mato Grosso do Sul",
+				"Minas Gerais",
+				"Para",
+				"Paraiba",
+				"Paraná",
+				"Pernambuco",
+				"Piaui",
+				"Rio de Janeiro",
+				"Rio Grande do Norte",
+				"Rio Grande do Sul",
+				"Rondonia",
+				"Roraima",
+				"Santa Catarina",
+				"Sao Paulo",
+				"Sergipe",
+				"Tocantins"
+			];
+			$("#estado" ).autocomplete({
+				source: estados
+			});
+		});
+		</script>
+		<!-- . -->
 
-    <!-- AutoComplete -->
-    <script>
-    $(function() {
-      var estados = [
-        "Acre",
-        "Alagoas",
-        "Amapa",
-        "Amazonas",
-        "Bahia",
-        "Ceará",
-        "Destrito Federal",
-        "Espirito Santo",
-        "Goias",
-        "Maranhao",
-        "Mato Grosso",
-        "Mato Grosso do Sul",
-        "Minas Gerais",
-        "Para",
-        "Paraiba",
-        "Paraná",
-        "Pernambuco",
-        "Piaui",
-        "Rio de Janeiro",
-        "Rio Grande do Norte",
-        "Rio Grande do Sul",
-        "Rondonia",
-        "Roraima",
-        "Santa Catarina",
-        "Sao Paulo",
-        "Sergipe",
-        "Tocantins"
-      ];
-      $("#estado" ).autocomplete({
-        source: estados
-      });
-    });
-    </script>
-    <!-- . -->
+		<!-- calendario -->
+		<script>
+		$(function() {
+			$("#calendario").datepicker({
+				changeMonth: true,
+				changeYear: true,
+				dateFormat: 'dd/mm/yy',
+				dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
+				monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
+			});
+		});
+		</script>
+		<!-- . -->
 
-    <!-- calendario -->
-    <script>
-    $(function() {
-      $("#calendario").datepicker({
-        changeMonth: true,
-        changeYear: true,
-        dateFormat: 'dd/mm/yy',
-        dayNamesMin: ['D','S','T','Q','Q','S','S','D'],
-        monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun','Jul','Ago','Set','Out','Nov','Dez']
-      });
-    });
-    </script>
-    <!-- . -->
+		<!-- validador -->
+		<script>
+		(function() {
+			'use strict';
+			window.addEventListener('load', function() {
+				var forms = document.getElementsByClassName('needs-validation');
+				var validation = Array.prototype.filter.call(forms, function(form) {
+					form.addEventListener('submit', function(event) {
+						if (form.checkValidity() === false) {
+							event.preventDefault();
+							event.stopPropagation();
+							alert("Preencha todos os campos, por favor!");
+						}
+						form.classList.add('was-validated');
+					}, false);
+				});
+			}, false);
+		})();
+		</script>
+		<!-- . -->
 
-    <!-- validador -->
-    <script>
-    (function() {
-      'use strict';
-      window.addEventListener('load', function() {
-        var forms = document.getElementsByClassName('needs-validation');
-        var validation = Array.prototype.filter.call(forms, function(form) {
-          form.addEventListener('submit', function(event) {
-            if (form.checkValidity() === false) {
-              event.preventDefault();
-              event.stopPropagation();
-              alert("Preencha todos os campos, por favor!");
-            }
-            form.classList.add('was-validated');
-          }, false);
-        });
-      }, false);
-    })();
-    </script>
-    <!-- . -->
+		<!-- Mascara -->
+		<script>
+		$(document).ready(function(){
+			$('#telefone').mask('9999-9999');
+			$('#celular').mask('(99) 9 9999-9999');
+			$('#cpf').mask('999.999.999-99');
+			$('#calendario').mask('99/99/9999');
+			$('#cep').mask('99.999-999');
+			$('#salario').mask('000.000.000,00', { reverse : true});
+		});
+		</script>
+		<!-- . -->
 
-    <!-- Mascara -->
-    <script>
-    $(document).ready(function(){
-      $('#telefone').mask('9999-9999');
-      $('#celular').mask('(99) 9 9999-9999');
-      $('#cpf').mask('999.999.999-99');
-      $('#calendario').mask('99/99/9999');
-      $('#cep').mask('99.999-999');
-      $('#salario').mask('000.000.000,00', { reverse : true});
-    });
-    </script>
-    <!-- . -->
+		<!-- Habilita/Desbilita -->
+		<script type="text/javascript">
+		document.getElementById( 'funcao' ).addEventListener( 'change', function(){
+			if(this.value === 'Administração') {
+				$( "#conf_senha" ).prop( "disabled", false );
+				$( "#senha" ).prop( "disabled", false );
+				$( "#pergunta" ).prop( "disabled", false );
+				$( "#resposta" ).prop( "disabled", false );
+			} else {
+				$( "#conf_senha" ).prop( "disabled", true );
+				$( "#senha" ).prop( "disabled", true );
+				$( "#pergunta" ).prop( "disabled", true );
+				$( "#resposta" ).prop( "disabled", true );
+			}
+		});
+		</script>
+		<!-- . -->
 
-    <!-- Habilita/Desbilita -->
-    <script type="text/javascript">
-    document.getElementById( 'funcao' ).addEventListener( 'change', function(){
-      if(this.value === 'Administração') {
-        $( "#email" ).prop( "disabled", false );
-        $( "#senha" ).prop( "disabled", false );
-        $( "#pergunta" ).prop( "disabled", false );
-        $( "#resposta" ).prop( "disabled", false );
-      } else {
-        $( "#email" ).prop( "disabled", true );
-        $( "#senha" ).prop( "disabled", true );
-        $( "#pergunta" ).prop( "disabled", true );
-        $( "#resposta" ).prop( "disabled", true );
-      }
-    });
-    </script>
-    <!-- . -->
-
-  </body>
+	</body>
 </html>

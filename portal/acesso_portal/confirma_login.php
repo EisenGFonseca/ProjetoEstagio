@@ -3,34 +3,25 @@
 
   include('../../conexao/conexao.php');
 
-  $email_adm = $_POST['email_adm'];
+  $email_fun = $_POST['email_fun'];
   $senha_adm = $_POST['senha_adm'];
-  $pergunta_adm = $_POST['pergunta_adm'];
-  $resposta_adm = $_POST['resposta_adm'];
 
-  $query = "SELECT admin.adm_email,
-		               admin.adm_senha,
-                   admin.adm_perguntaSeg,
-                   admin.adm_resposta
-                   FROM
-                   admin
-                   WHERE adm_email = :email_adm and
-						             adm_senha = :senha_adm and
-                         adm_perguntaSeg = :pergunta_adm and
-                         adm_resposta = :resposta_adm";
+  $query = "SELECT fun_nome, fun_email
+                FROM admin LEFT JOIN funcionario ON fun_cod_fk = fun_cod
+                WHERE fun_email = :email_fun AND adm_senha = :senha_adm";
 
+  $consulta = $conn->prepare( $query );
 
-  $consulta = $conn->prepare($query);
-
-  $consulta->bindParam(':email_adm', $email_adm);
+  $consulta->bindParam(':email_fun', $email_fun);
   $consulta->bindParam(':senha_adm', $senha_adm);
-  $consulta->bindParam(':pergunta_adm', $pergunta_adm);
-  $consulta->bindParam(':resposta_adm', $resposta_adm);
 
   $resultado = $consulta->execute();
 
   if($resultado && $consulta->rowCount() == 1) {
-    $_SESSION['user_login'] = $email_adm;
+    $usuario = $consulta->fetch(PDO::FETCH_OBJ);
+
+    $_SESSION['user_nome'] = $usuario->fun_nome;
+    $_SESSION['user_login'] = $usuario->fun_email;
 
     header("Location:../index_portal.php");
   } else {

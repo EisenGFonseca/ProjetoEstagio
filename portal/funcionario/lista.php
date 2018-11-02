@@ -1,4 +1,4 @@
-<?php include('../acesso_portal/check_login.php');?>
+<?php include('/portal/acesso_portal/check_login.php');?>
 
 <?php
   include('../../conexao/conexao.php');
@@ -53,13 +53,15 @@
           <a class="btn btn-light" href="../../../../index.php">Início</a>
           <a class="btn btn-light" href="#">Contato</a>
           <a class="btn btn-light" href="../../../sobre/sobre.php">Sobre</a>
-          <a class="btn btn-light" href="../../index_portal.php">Home Admin</a>
+          <a class="btn btn-light" href="../index_portal.php">Home Admin</a>
         </ul>
 
-        <ul class="app-bar-menu ml-auto collapsed" style="">
-          <a class="btn btn-light" href="../../acesso_portal/logout.php"><b>USUÁRIO</b></a>
-          <a class="btn btn-danger" href="../../acesso_portal/logout.php">Sair</a>
-        </ul>
+        <?php if(isset($_SESSION['user_nome'])) : ?>
+          <ul class="app-bar-menu ml-auto collapsed" style="">
+            <a class="btn btn-light" href="#"><b><?php echo $_SESSION['user_nome'] ?></b></a>
+            <a class="btn btn-danger" href="/portal/acesso_portal/logout.php">Sair</a>
+          </ul>
+        <?php endif ?>
       </div>
 
     </div> <!-- END-MENU -->

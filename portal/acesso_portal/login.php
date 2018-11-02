@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Portal do Professor </title>
+    <title> Login </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
 
@@ -45,21 +45,10 @@
         <br />
         <form class="needs-validation" novalidate name="Cadastro" action="confirma_login.php" method="post" onsubmit="return cadastrarPessoa();" >
           <p>Email:</p>
-          <input  type="text" name="email_adm" placeholder="Email" class="form-control" id="validationCustom01" required>
+          <input  type="text" name="email_fun" placeholder="Email" class="form-control" id="validationCustom01" required>
 
           <p>Senha:</p>
           <input type="password" name="senha_adm"  placeholder="Senha" class="form-control" id="validationCustom01" required>
-
-          <p>Pergunta de segurança</p>
-          <select class="custom-select" id="inputGroupSelect01 prof_pergunta" name="pergunta_adm">
-            <option value="null" selected>Pergunta de Segurança</option>
-            <option value="Prato">Qual é seu prato preferido?</option>
-            <option value="Animal">Qual foi o nome do seu primeiro animal de estimação?</option>
-            <option value="Celular">Qual foi seu primeiro número de celular?</option>
-            <option value="Mãe">Qual é o nome de solteira da sua mãe?</option>
-            </select>
-          <p></p>
-          <input type="text" name="resposta_adm" placeholder="resposta" class="form-control" id="validationCustom01" required>
 
           <input type="submit" name="" value="Logar">
 

@@ -1,4 +1,5 @@
 <?php include('../../acesso_portal/check_login.php');?>
+
 <?php
 
 	include('../../../conexao/conexao.php');
@@ -10,6 +11,7 @@
 	$fun_cpf = $_POST['fun_cpf'];
 	$fun_telefone = $_POST['fun_telefone'];
 	$fun_celular = $_POST['fun_celular'];
+	$fun_email = $_POST['fun_email'];
 	$fun_rua = $_POST['fun_rua'];
 	$fun_numero = $_POST['fun_numero'];
 	$fun_bairro = $_POST['fun_bairro'];
@@ -19,19 +21,16 @@
 	$fun_funcao = $_POST['fun_funcao'];
 	$fun_salario = $_POST['fun_salario'];
 
-	$adm_email = $_POST['adm_email'];
 	$adm_senha = $_POST['adm_senha'];
-	$adm_pergunta = $_POST['adm_pergunta'];
-	$adm_resposta = $_POST['adm_resposta'];
 
-	if($adm_email == ''){
 	$sql = "INSERT INTO funcionario VALUES (NULL, :fun_nome,
 																								:fun_dataNas,
 																								:fun_sexo,
 																								:fun_rg,
 																								:fun_cpf,
-																								:fun_telefone,
 																								:fun_celular,
+																								:fun_telefone,
+																								:fun_email,
 																								:fun_rua,
 																								:fun_numero,
 																								:fun_bairro,
@@ -39,31 +38,11 @@
 																								:fun_cidade,
 																								:fun_estado,
 																								:fun_funcao,
-																								:fun_salario)";
-}
-else{
-		$sql = "INSERT INTO funcionario VALUES (NULL, :fun_nome,
-																									:fun_dataNas,
-																									:fun_sexo,
-																									:fun_rg,
-																									:fun_cpf,
-																									:fun_telefone,
-																									:fun_celular,
-																									:fun_rua,
-																									:fun_numero,
-																									:fun_bairro,
-																									:fun_cep,
-																									:fun_cidade,
-																									:fun_estado,
-																									:fun_funcao,
-																									:fun_salario);
+																								:fun_salario);";
 
-								 INSERT INTO admin VALUES (null, :adm_email,
-																								 :adm_senha,
-																								 :adm_pergunta,
-																								 :adm_resposta,
-																								 last_insert_id())";
-}
+	if($fun_funcao == 'Administrador'){
+		$sql.= "INSERT INTO admin VALUES (null, :adm_senha, last_insert_id())";
+	}
 
 	$inserir = $conn->prepare($sql);
 
@@ -74,6 +53,7 @@ else{
 	$inserir->bindParam( ':fun_cpf', $fun_cpf);
 	$inserir->bindParam( ':fun_telefone', $fun_telefone);
 	$inserir->bindParam( ':fun_celular', $fun_celular);
+	$inserir->bindParam( ':fun_email', $fun_email);
 	$inserir->bindParam( ':fun_rua', $fun_rua);
 	$inserir->bindParam( ':fun_numero', $fun_numero);
 	$inserir->bindParam( ':fun_bairro', $fun_bairro);
@@ -83,16 +63,19 @@ else{
 	$inserir->bindParam( ':fun_funcao', $fun_funcao);
 	$inserir->bindParam( ':fun_salario', $fun_salario);
 
-	$inserir->bindParam( ':adm_email', $adm_email);
-	$inserir->bindParam( ':adm_senha', $adm_senha);
-	$inserir->bindParam( ':adm_pergunta', $adm_pergunta);
-	$inserir->bindParam( ':adm_resposta', $adm_resposta);
+	// $id = $conn->lastInsertId();
+
+	if($fun_funcao == 'Administrador'){
+		$inserir->bindParam(':adm_senha', $adm_senha);
+	}
 
 	$resultado = $inserir->execute();
+
+	// var_dump ($inserir->errorInfo());
+	// exit;
 ?>
 
 <?php
-
 	$sql = "SELECT * FROM funcionario";
 	$consulta = $conn->prepare($sql);
 	$consulta->execute();
@@ -126,10 +109,6 @@ else{
 
     <!-- MENU -->
     <div data-role="appbar" data-expand-point="md">
-      <a href="#" class="brand no-hover">
-        <img src="../../../../img/Logo - Pestalozzi.png" height="30" class="d-inline-block align-top" alt="">
-      </a>
-
       <div data-role="appbar" data-expand-point="md">
         <button type="button" class="hamburger menu-down hidden">
           <span class="line"></span>

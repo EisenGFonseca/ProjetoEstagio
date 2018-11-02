@@ -67,6 +67,13 @@ ul {
   margin-left: 0;
 }
 
+.box-cadastro{
+  display: block;
+  padding: 0px;
+  list-style-type: none;
+  margin-left: 0;
+}
+
 @media (max-width:62.5em) {
   #lateral, #pagebody  {
     width: 98%;
