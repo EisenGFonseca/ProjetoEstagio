@@ -145,8 +145,8 @@
                     </div>
 
                     <div class="botoes_form">
-                      <button type="submit" class="btn btn-outline-success btn-lg btn-block" onClick="validarSenha()">Cadastrar Funcionario</button>
-                      <button type="reset" class="btn btn btn-outline-warning btn-lg btn-block">Limpar Campos</button>
+                      <button type="submit" class="btn btn-success btn-lg btn-block" onClick="validarSenha()">Cadastrar Funcionario</button>
+                      <button type="reset" class="btn btn btn-warning btn-lg btn-block">Limpar Campos</button>
                     </div>
                   </form>
 

@@ -131,7 +131,7 @@ document.getElementById( 'funcao' ).addEventListener( 'change', function(){
         if (form.checkValidity() === false) {
           event.preventDefault();
           event.stopPropagation();
-          alert("Preencha todos os campos, por favor!");
+          alert("Cheque todos os campos, por favor!");
         }
         form.classList.add('was-validated');
       }, false);

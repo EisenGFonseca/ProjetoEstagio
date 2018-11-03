@@ -1,6 +1,7 @@
-<?php include('../../acesso_portal/check_login.php');?>
-
-<?php
+	<?php
+	{
+		include('../../acesso_portal/check_login.php');
+	}
 	include('../../../conexao/conexao.php');
 
 	if(empty($_GET['fun_cod'])){

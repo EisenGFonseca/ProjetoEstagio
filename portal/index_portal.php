@@ -1,4 +1,16 @@
-<?php include('acesso_portal/check_login.php');?>
+<?php
+  {
+    include('acesso_portal/check_login.php');
+  }
+  {
+    include('../conexao/conexao.php');
+  	$sql = "SELECT * FROM funcionario WHERE last_insert_id();";
+  	$consulta = $conn->prepare($sql);
+  	$consulta->execute();
+
+  	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+  }
+?>
 
 <!DOCTYPE html>
 <html>
@@ -37,7 +49,10 @@
             <div id="content">
                 <h1 class="linha_baixo">Ultimas Atualizações</h1>
               <br />
-              <h2>Ultimo Cliente cadastrado</h2>
+              <?php foreach ($registros as $registro) { ?>
+              <h2>Ultimo Cliente cadastrado: </h2>
+              <b><?php echo $registro->fun_nome; ?></b>
+                <?php } ?>
               <span><b></b>, cargo.</span>
               <br />
               <br />

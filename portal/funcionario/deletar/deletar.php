@@ -57,84 +57,94 @@
 
       						<form name="Cadastro" action="deletar_registro.php" method="post" onsubmit="return cadastrar();" >
 
-										<input name="fun_cod" type="hidden" value="<?php echo $registro->fun_cod; ?>">
+										<input name="fun_cod" type="hidden" value="<?php echo $registro->fun_cod; ?>" Use readonly="true"/>
                     <!-- nome -->
                     <div class="form-group">
-                      <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_nome; ?>"/>
+											<m class="legenda">Nome</m>
+											<input name="fun_nome" type="text" class="form-control" value="<?php echo $registro->fun_nome; ?>" Use readonly="true"/>
       						  </div>
                     <div class="row row-form">
                       <!-- datanas -->
                       <div class="cell-md-6 ajusta">
-                        <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento"  class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_dataNas; ?>"/>
+												<m class="legenda">Data de Nascimento</m>
+												<input name="fun_dataNas" type="text" class="form-control" value="<?php echo $registro->fun_dataNas; ?>" Use readonly="true"/>
                       </div>
                       <!-- sexo -->
-                      <div class="cell-md-6">
-                        <select name="fun_sexo"class="custom-select" id="inputGroupSelect02">
-      										<option selected><?php echo $registro->fun_sexo; ?></option>
-                          <option value="Masculino">Masculino</option>
-                          <option value="Feminino">Feminino</option>
-                        </select>
+											<div class="cell-md-6 ajusta">
+												<m class="legenda">Sexo</m>
+												<input name="fun_sexo" type="text" class="form-control" value="<?php echo $registro->fun_sexo; ?>" Use readonly="true"/>
                       </div>
                     </div>
 
                     <div class="row row-form">
                       <!-- rg -->
                       <div class="cell-md-6 ajusta">
-                        <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rg; ?>"/>
+												<m class="legenda">RG</m>
+												<input name="fun_rg" type="text" class="form-control" value="<?php echo $registro->fun_rg; ?>" Use readonly="true"/>
                       </div>
                       <!-- cpf -->
                       <div class="cell-md-6">
-                        <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cpf; ?>"/>
+												<m class="legenda">CPF</m>
+												<input name="fun_cpf" type="text" class="form-control" value="<?php echo $registro->fun_cpf; ?>" Use readonly="true"/>
                       </div>
                     </div>
 
                     <div class="row row-form">
                       <!-- telefone -->
                       <div class="cell-md-6 ajusta">
-                        <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_telefone; ?>"/>
+												<m class="legenda">Telefone</m>
+												<input  name="fun_telefone" type="text" class="form-control" value="<?php echo $registro->fun_telefone; ?>" Use readonly="true"/>
                       </div>
                       <!-- celular -->
                       <div class="cell-md-6">
-                        <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_celular; ?>"/>
+												<m class="legenda">Celular</m>
+												<input name="fun_celular" type="text" class="form-control" class="form-control" value="<?php echo $registro->fun_celular; ?>" Use readonly="true"/>
                       </div>
                     </div>
       							<!-- email -->
       							<div class="form-group">
-      								<input id="email" name="fun_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_email; ?>"/>
+											<m class="legenda">Email</m>
+											<input name="fun_email" type="email" class="form-control" value="<?php echo $registro->fun_email; ?>" Use readonly="true"/>
       							</div>
                     <div class="row row-form">
                       <!-- rua -->
                       <div class="cell-md-6 ajusta">
-                        <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rua; ?>"/>
+												<m class="legenda">Rua</m>
+												<input name="fun_rua" type="text" class="form-control" value="<?php echo $registro->fun_rua; ?>" Use readonly="true"/>
                       </div>
                       <!-- numero -->
                       <div class="cell-md-6">
-                        <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_numero; ?>"/>
+												<m class="legenda">Número</m>
+												<input name="fun_numero" type="text" class="form-control" value="<?php echo $registro->fun_numero; ?>" Use readonly="true"/>
                       </div>
                     </div>
 
                     <div class="row row-form">
                       <!-- bairro -->
                       <div class="cell-md-6 ajusta">
-                        <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_bairro; ?>"/>
+												<m class="legenda">Bairro</m>
+												<input name="fun_bairro" type="text" class="form-control" value="<?php echo $registro->fun_bairro; ?>" Use readonly="true"/>
                       </div>
                       <!-- cep -->
                       <div class="cell-md-6">
-                        <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cep; ?>"/>
+												<m class="legenda">CEP</m>
+												<input name="fun_cep" type="text" class="form-control" value="<?php echo $registro->fun_cep; ?>" Use readonly="true"/>
                       </div>
                     </div>
 
                     <div class="row row-form">
                       <!-- cidade -->
                       <div class="cell-md-6 ajusta">
-                        <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cidade; ?>"/>
+												<m class="legenda">Cidade</m>
+												<input name="fun_cidade" type="text" class="form-control" value="<?php echo $registro->fun_cidade; ?>" Use readonly="true"/>
                       </div>
                       <!-- estado -->
                       <div class="cell-md-6">
-                        <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_estado; ?>"/>
+												<m class="legenda">Estado</m>
+												<input id="estado" name="fun_estado" type="text" class="form-control" value="<?php echo $registro->fun_estado; ?>" Use readonly="true"/>
                       </div>
                     </div>
-										<br />
+										<br  Use readonly="true"/>
 										<h5>Deseja realmente exluir este registro?</h5>
 
 										<div class="botoes_form">

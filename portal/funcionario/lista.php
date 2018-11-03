@@ -1,7 +1,9 @@
-<?php include('../acesso_portal/check_login.php');?>
-
 <?php
-include('../../conexao/conexao.php');
+	{
+		include('../acesso_portal/check_login.php');
+	}
+
+	include('../../conexao/conexao.php');
 	$sql = "SELECT * FROM funcionario";
 	$consulta = $conn->prepare($sql);
 	$consulta->execute();
