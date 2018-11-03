@@ -31,19 +31,18 @@ $('.ir a[href^="#"]').on('click', function(e) {
 });
 </script>
 
-<!-- Deslizar Pagina -->
-  <script>
-  $('.ir a[href^="#"]').on('click', function(e) {
-    e.preventDefault();
-    var id = $(this).attr('href'),
-    targetOffset = $(id).offset().top;
-
-    $('html, body').animate({
-      scrollTop: targetOffset - 100
-    }, 500);
-  });
-  </script>
-  <!-- . -->
+<!-- Mascara -->
+<script>
+$(document).ready(function(){
+  $('#telefone').mask('(99) 9999-9999');
+  $('#celular').mask('(99) 9 9999-9999');
+  $('#cpf').mask('999.999.999-99');
+  $('#calendario').mask('99/99/9999');
+  $('#cep').mask('99.999-999');
+  $('#salario').mask('000.000.000,00', { reverse : true});
+});
+</script>
+<!-- . -->
 
 <!-- validate -->
 <script type="text/javascript">
@@ -220,3 +219,39 @@ function makeAllSortable(parent) {
 makeAllSortable();
 </script>
 <!-- . -->
+
+<!-- BARRA-RESPONSIVA -->
+<script>
+var slide_wrp 		= ".side-menu-wrapper"; //Menu Wrapper
+var open_button 	= ".menu-open"; //Menu Open Button
+var close_button 	= ".menu-close"; //Menu Close Button
+var overlay 		= ".menu-overlay"; //Overlay
+
+$(slide_wrp).hide().css( {"left": -$(slide_wrp).outerWidth()+'px'}).delay(50).queue(function(){$(slide_wrp).show()});
+
+$(open_button).click(function(e){
+	e.preventDefault();
+	$(slide_wrp).css( {"left": "0px"});
+	setTimeout(function(){
+		$(slide_wrp).addClass('active');
+	},50);
+	$(overlay).css({"opacity":"1", "width":"100%"});
+});
+
+$(close_button).click(function(e){
+	e.preventDefault();
+	$(slide_wrp).css( {"left": -$(slide_wrp).outerWidth()+'px'});
+	setTimeout(function(){
+		$(slide_wrp).removeClass('active');
+	},50);
+	$(overlay).css({"opacity":"0", "width":"0"});
+});
+
+$(document).on('click', function(e) {
+	if (!e.target.closest(slide_wrp) && $(slide_wrp).hasClass("active")){
+		$(slide_wrp).css( {"left": -$(slide_wrp).outerWidth()+'px'}).removeClass('active');
+		$(overlay).css({"opacity":"0", "width":"0"});
+	}
+});
+</script>
+<!-- FIM BARRA-RESPONSIVA -->

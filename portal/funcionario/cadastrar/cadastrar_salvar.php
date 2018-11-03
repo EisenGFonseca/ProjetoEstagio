@@ -1,12 +1,11 @@
 <?php include('../../acesso_portal/check_login.php');?>
 
 <?php
-	{
+	include('../../../conexao/conexao.php');{
+		{
 		if(empty($_POST['fun_nome'])){
 			header('location:../lista.php?fun_cod=null');
 		} else {
-
-			include('../../../conexao/conexao.php');
 
 			$fun_nome = $_POST['fun_nome'];
 			$fun_dataNas = $_POST['fun_dataNas'];
@@ -79,13 +78,17 @@
 				// exit;
 				// array(3) { [0]=> string(5) "00000" [1]=> NULL [2]=> NULL }
 			}
-}
+		}
+		{
+			include('../../../conexao/conexao.php');
 
-	$sql = "SELECT * FROM funcionario";
-	$consulta = $conn->prepare($sql);
-	$consulta->execute();
+			$sql = "SELECT * FROM funcionario";
+			$consulta = $conn->prepare($sql);
+			$consulta->execute();
 
-	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+			$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+		}
+	}
 ?>
 
 <!DOCTYPE html>

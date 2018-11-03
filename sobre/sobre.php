@@ -6,25 +6,17 @@
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
 
-    <!-- PROPRIO -->
-    <link rel="stylesheet" type="text/css" href="../../css/css.css">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- METRO UI -->
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
-
+    <!-- CSS -->
+    <?php include('../inc/css.php'); ?>
+    <!-- END-CSS -->
   </head>
 
-  <body class="body1">
+	<body class="body1">
 
-    <!-- MENU -->
-    <?php include('../inc/menu.php');?>
-    <!-- END-MENU -->
+		<!-- MENU -->
+		<?php include('../inc/menu.php'); ?>
+		<!-- END-MENU -->
+
 
     <!-- CORPO -->
     <div id="Conteiner-Principal">
