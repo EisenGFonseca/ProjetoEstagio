@@ -1,4 +1,4 @@
-<?php include('../../acesso_portal/check_login.php');?>
+<?php include('portal/acesso_portal/check_login.php');?>
 
 <!DOCTYPE html>
 <html>
@@ -20,13 +20,13 @@
 
     <!-- CORPO -->
     <div id="Conteiner-Principal">
-    <div class='imagem-capa capa-cadastrar'>
-      <div class='texto-capa texto-sobre'>
-        <h1 class="hello">Cadastrar Funcionário</h1>
-        <h2 class="index hello sumir">Preencha o Formulario abaixo</h2>
-        <h3 class="index hello sumir">Caso selecione a função Administrador, o campo 'senha' será habilitado</h3>
-      </div> <!-- imagem-capa -->
-    </div> <!-- texto-capa -->
+      <div class='imagem-capa capa-cadastrar'>
+        <div class='texto-capa texto-sobre'>
+          <h1 class="hello">Cadastrar Funcionário</h1>
+          <h2 class="index hello sumir">Preencha o Formulario abaixo</h2>
+          <h3 class="index hello sumir">Caso selecione a função Administrador, o campo 'senha' será habilitado</h3>
+        </div> <!-- imagem-capa -->
+      </div> <!-- texto-capa -->
 
       <div id="wrapper">
         <div id="pagebody">
@@ -34,9 +34,9 @@
 
             <section id="cadastrar">
               <div id="Conteiner-Formulario">
-                <h3 class="form">Formulario de Cadastro</h1>
+                <h3 class="form">Cadastrar Funcionário</h1>
 
-                  <form class="needs-validation" novalidate name="Cadastro" action="cadastrar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
+                  <form name="Cadastro" class="needs-validation" novalidate action="cadastrar_salvar.php" method="post" onsubmit="return cadastrar();" >
                     <!-- nome -->
                     <div class="form-group">
                       <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required>
@@ -44,7 +44,7 @@
                     <div class="row row-form">
                       <!-- datanas -->
                       <div class="cell-md-6 ajusta">
-                        <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento"  class="form-control" id="validationCustom01" required/>
+                        <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento" class="form-control" id="validationCustom01" required/>
                       </div>
                       <!-- sexo -->
                       <div class="cell-md-6">
@@ -140,13 +140,13 @@
                       </div>
                       <!-- senha -->
                       <div class="cell-md-6">
-                        <input id="conf_senha" name="adm_senha" type="password" class="form-control" placeholder="Confirmar Senha" class="form-control" id="validationCustom01" required disabled="disabled">
+                        <input id="confirmar_senha" name="adm_senha" type="password" class="form-control" placeholder="Confirmar Senha" class="form-control" id="validationCustom01" required disabled="disabled">
                       </div>
                     </div>
 
                     <div class="botoes_form">
-                      <button type="submit"class="btn btn-success">Enviar</button>
-                      <button type="reset"class="btn btn-warning" >Limpar</button>
+                      <button type="submit" class="btn btn-outline-success btn-lg btn-block" onClick="validarSenha()">Cadastrar Funcionario</button>
+                      <button type="reset" class="btn btn btn-outline-warning btn-lg btn-block">Limpar Campos</button>
                     </div>
                   </form>
 

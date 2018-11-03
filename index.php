@@ -6,19 +6,9 @@
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
 
-    <!-- PROPRIO -->
-    <link rel="stylesheet" type="text/css" href="css/css.css">
-    <!-- BOOTSTRAP -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <!-- METRO UI -->
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-icons.min.css">
-    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-colors.min.css">
-    <!-- AOS -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- MENU -->
+    <?php include('inc/css.php'); ?>
+    <!-- END-MENU -->
 
   </head>
 
@@ -186,37 +176,14 @@
 
             </div><!-- Conteiner-Conteudo -->
           </div> <!-- Conteiner-Principal -->
-          <div class="footer">
-            <p class="footer_font">@2018 EisenFonseca</p>
-          </div>
+
+          <!--FOOTER -->
+          <?php include('inc/footer.php'); ?>
+          <!-- END FOOTER-->
 
           <!-- JS -->
-          <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-          <!-- JS METRO UI -->
-          <script src="https://cdn.metroui.org.ua/v4/js/metro.min.js"></script>
-
-          <!-- BOOSTRAP -->
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-          <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-
-          <!-- AOS -->
-          <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-          <script>
-            AOS.init();
-          </script>
-
-          <!-- Deslizar Pagina -->
-          <script>
-          $('.ir a[href^="#"]').on('click', function(e) {
-            e.preventDefault();
-            var id = $(this).attr('href'),
-            targetOffset = $(id).offset().top;
-
-            $('html, body').animate({
-              scrollTop: targetOffset - 100
-            }, 500);
-          });
-          </script>
+          <?php include('inc/js.php'); ?>
+          <!-- END JS -->
 
   </body>
 </html>

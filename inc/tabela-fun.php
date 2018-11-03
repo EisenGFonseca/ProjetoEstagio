@@ -5,8 +5,8 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Nome</th>
-          <th scope="col">Cargo</th>
-          <th scope="col">Celular</th>
+          <th scope="col" class="sumir-tabela">Cargo</th>
+          <th scope="col" class="sumir-tabela">Celular</th>
           <th scope="col">Email</th>
           <th scope="col">Ação</th>
         </tr>
@@ -16,8 +16,8 @@
           <tr>
             <th scope="row"><?php echo $registro->fun_cod; ?></th>
             <td><?php echo $registro->fun_nome; ?></td>
-            <td><?php echo $registro->fun_funcao; ?></td>
-            <td><?php echo $registro->fun_celular; ?></td>
+            <td class="sumir-tabela"><?php echo $registro->fun_funcao; ?></td>
+            <td class="sumir-tabela"><?php echo $registro->fun_celular; ?></td>
             <td><?php echo $registro->fun_email; ?></td>
             <td>
               <a class="none" href="/portal/funcionario/fulano.php?fun_cod=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-info"> Ver Mais </button></a>

@@ -23,7 +23,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Atualizar <?php echo $registro->fun_nome; ?></title>
+    <title> Deletar <?php echo $registro->$fun_nome; ?> </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
     <!-- CSS -->
@@ -41,9 +41,9 @@
     <div id="Conteiner-Principal">
       <div class='imagem-capa capa-cadastrar'>
         <div class='texto-capa texto-sobre'>
-          <h1 class="hello">Editar Informações</h1>
-          <h2 class="index hello sumir">Atualize as Informações abaixo</h2>
-          <h3 class="index hello sumir">Ainda não é possível alterar o cargo do funcionario</h3>
+          <h1 class="hello">Deletar Informações</h1>
+          <h2 class="index hello sumir">Deletar Informações sobre empregregado</h2>
+          <h3 class="index hello sumir">...</h3>
         </div> <!-- imagem-capa -->
       </div> <!-- texto-capa -->
 
@@ -55,7 +55,7 @@
               <div id="Conteiner-Formulario">
                 <h3 class="form">Atualizar Dados</h1>
 
-      						<form name="Cadastro" class="needs-validation" novalidate action="atualizar_salvar.php" method="post" onsubmit="return cadastrar();" >
+      						<form name="Cadastro" action="deletar_registro.php" method="post" onsubmit="return cadastrar();" >
 
 										<input name="fun_cod" type="hidden" value="<?php echo $registro->fun_cod; ?>">
                     <!-- nome -->
@@ -134,11 +134,36 @@
                         <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_estado; ?>"/>
                       </div>
                     </div>
+										<br />
+										<h5>Deseja realmente exluir este registro?</h5>
 
-                    <div class="botoes_form">
-                      <button type="submit" class="btn btn-outline-success btn-lg btn-block" onClick="validarSenha()">Atualizar Dados</button>
-                      <button type="reset" class="btn btn btn-outline-warning btn-lg btn-block">Resetar Campos</button>
-                    </div>
+										<div class="botoes_form">
+											<a href="/portal/funcionario/lista.php" class="btn btn-success btn-lg btn-block" role="button"> Cancelar </a>
+											<button type="button" class="btn btn-danger btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter"> Deletar </button>
+										</div>
+
+										<!-- Modal -->
+										<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+											<div class="modal-dialog modal-dialog-centered" role="document">
+												<div class="modal-content">
+													<div class="modal-header">
+														<h5 class="modal-title" id="exampleModalCenterTitle">Deseja mesmo deletar este registro?</h5>
+														<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+															<span aria-hidden="true">&times;</span>
+														</button>
+													</div>
+													<div class="modal-body">
+														Uma vez deletado, não será possivel recuperá-lo!
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-success" data-dismiss="modal"> Cancelar </button>
+														<button type="submit" class="btn btn-danger"  onclick="funcao_alerta()"> Deletar </button>
+													</div>
+
+												</div> <!-- odal-content -->
+											</div> <!-- modal-dialog modal-dialog-centered -->
+										</div> <!-- modal fade -->
+										<!-- Fim Modal -->
 
       						</form>
       					</div><!--Conteiner_Formulário-->

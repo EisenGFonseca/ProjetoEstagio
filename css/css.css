@@ -32,11 +32,10 @@ body.body1{
 }
 
 #container-contatos {
-    width: 97%;
-    background-color: white;
-    box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
-    margin-left: auto;
-    margin-right: 2.5%;
+  width: 100%%;
+  background-color: white;
+  box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+  margin-left: auto;
 }
 
 #Conteiner-Formulario {
@@ -95,7 +94,7 @@ body.body1{
 }
 
 #fulano{
-  padding: 10px 0px 20px 20px;
+  padding: 20px;
   background-color: #fff;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
   width: 101%;
@@ -126,9 +125,7 @@ body.body1{
 }
 
 .botoes_form {
-  width: 175px;
-  display: inline-flex;
-  justify-content: space-between;
+  width: auto;
   padding-bottom: 20px;
   padding-top: 7px;
 }
@@ -142,12 +139,12 @@ body.body1{
 }
 
 /* .box {
-  width: 80%;
-  padding: 30px;
-  margin: 0 auto;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+width: 80%;
+padding: 30px;
+margin: 0 auto;
+text-align: center;
+background-color: #fff;
+box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
 } */
 
 .entrar-menu{
@@ -302,9 +299,9 @@ img.index{
 }
 
 img.slides {
-    width: 80%;
-    display: block;
-    right: -55px;
+  width: 80%;
+  display: block;
+  right: -55px;
 }
 
 /* Fontes */
@@ -403,17 +400,17 @@ h5.sub_titulo{
 }
 
 .esq-preta{
-    text-align-last: left;
-    color: black;
+  text-align-last: left;
+  color: black;
 }
 .barra{
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 25px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 25px;
 }
 
 .barra-sub {
-    border-bottom: 1px solid #ccc;
-    margin-bottom: 5px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 5px;
 }
 /* fim-fontes */
 
@@ -575,8 +572,13 @@ p.footer_font {
 .sumir{
   display: block;
 }
+
+.sumir-tabela{
+  display: table-cell;
+}
+
 .pull-right {
-    float: right;
+  float: right;
 }
 
 .pull-left{
@@ -599,7 +601,7 @@ p.footer_font {
     margin: auto;
   }
 
-  .sumir, .user, .apresenta{
+  .sumir, .sumir-tabela, .user, .apresenta{
     display: none;
   }
 
@@ -607,7 +609,7 @@ p.footer_font {
     margin-bottom: 15px;
   }
   body.login{
-      background-size: 195%;
+    background-size: 195%;
   }
 }
 
