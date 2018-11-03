@@ -1,4 +1,4 @@
-<?php include('portal/acesso_portal/check_login.php');?>
+<?php include('../../acesso_portal/check_login.php');?>
 
 <!DOCTYPE html>
 <html>

@@ -13,7 +13,7 @@ include('../../conexao/conexao.php');
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Cadastrar </title>
+    <title> Lista </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
     <!-- CSS -->
@@ -58,7 +58,7 @@ include('../../conexao/conexao.php');
 		</div> <!-- Conteiner-Principal -->
 
 		<!--FOOTER -->
-		<?php include('../../inc/js.php'); ?>
+		<?php include('../../inc/footer.php'); ?>
 		<!-- END FOOTER-->
 
 		<!-- JS -->

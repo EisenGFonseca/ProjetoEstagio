@@ -577,6 +577,10 @@ p.footer_font {
   display: table-cell;
 }
 
+.table th {
+    vertical-align: middle !important;
+}
+
 .pull-right {
   float: right;
 }

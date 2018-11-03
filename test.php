@@ -1,149 +1,101 @@
-<?php include('portal/acesso_portal/check_login.php');?>
+<?php
+include('conexao/conexao.php');
+	$sql = "SELECT * FROM funcionario";
+	$consulta = $conn->prepare($sql);
+	$consulta->execute();
+
+	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Atualizar </title>
+    <title> Cadastrar </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
     <!-- CSS -->
     <?php include('inc/css.php'); ?>
     <!-- END-CSS -->
+
   </head>
 
-  <body class="body1">
+	<body class="body1">
 
-    <!-- MENU -->
-    <?php include('inc/menu.php'); ?>
-    <!-- END-MENU -->
+		<!-- MENU -->
+		<?php include('inc/menu.php'); ?>
+		<!-- END-MENU -->
 
-    <!-- CORPO -->
-    <div id="Conteiner-Principal">
-      <div class='imagem-capa capa-cadastrar'>
-        <div class='texto-capa texto-sobre'>
-          <h1 class="hello">Editar Informações</h1>
-          <h2 class="index hello sumir">Atualize as Informações abaixo</h2>
-          <h3 class="index hello sumir">Ainda não é possível alterar o cargo do funcionario</h3>
-        </div> <!-- imagem-capa -->
-      </div> <!-- texto-capa -->
+		<!-- CORPO -->
+		<div id="Conteiner-Principal">
+			<div class='imagem-capa capa-cadastrar'>
+				<div class='texto-capa texto-sobre'>
+					<h1 class="hello">Funcionários</h1>
+					<h2 class="index hello sumir">Lista de empregados cadastrados</h2>
+					<h3 class="index hello sumir">Clique em ver mais para ter acesso à seus dados</h3>
+				</div> <!-- imagem-capa -->
+			</div> <!-- texto-capa -->
 
-      <div id="wrapper">
-        <div id="pagebody">
-          <div id="content">
+			<div id="wrapper">
+				<div id="pagebody">
+					<div id="content">
 
-            <section id="cadastrar">
-              <div id="Conteiner-Formulario">
-                <h3 class="form">Atualizar Dados</h1>
+						<div id="container-contatos">
+              <div class="table-responsive-xl">
+                <table class="table" data-sortable>
+                  <!-- Tabelas-->
+                  <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+                   <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> -->
+                  <!-- . -->
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">Nome</th>
+                      <th scope="col" class="sumir-tabela">Cargo</th>
+                      <th scope="col" class="sumir-tabela">Celular</th>
+                      <th scope="col">Email</th>
+                      <th scope="col">Ação</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <?php foreach ($registros as $registro) { ?>
+                      <tr>
+                        <th scope="row"><?php echo $registro->fun_cod; ?></th>
+                        <td><?php echo $registro->fun_nome; ?></td>
+                        <td class="sumir-tabela"><?php echo $registro->fun_funcao; ?></td>
+                        <td class="sumir-tabela"><?php echo $registro->fun_celular; ?></td>
+                        <td><?php echo $registro->fun_email; ?></td>
+                        <td>
+                          <a class="none" href="/portal/funcionario/fulano.php?fun_cod=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-info"> Ver Mais </button></a>
+                          <!-- <a class="none" href="../atualizar/atualizar.php?fun_cod=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-warning"> Alterar </button></a>
+                          <a class="none" href="deletar.php?fun_id=<?php echo $registro->fun_cod; ?>"><button type="button" class="btn btn-danger"> Deletar </button></a> -->
+                        </td>
+                      </tr>
+                    <?php } ?>
+                  </tbody>
+                </table>
+              </div>
+            </div>
 
-      					<input name="fun_cod" type="hidden" value="<?php echo $registro->fun_cod; ?>">
+					</div><!-- Fim da div content -->
+				</div> <!--fim da pagebody -->
 
-      						<form class="needs-validation" novalidate name="Cadastro" action="atualizar_salvar.php" method="post" onsubmit="return cadastrarPessoa();" >
-                    <!-- nome -->
-                    <div class="form-group">
-                      <input name="fun_nome"type="text" class="form-control" placeholder="Nome Completo" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_nome; ?>"/>
-      						  </div>
-                    <div class="row row-form">
-                      <!-- datanas -->
-                      <div class="cell-md-6 ajusta">
-                        <input id="calendario" name="fun_dataNas" type="text" placeholder="Data de nascimento"  class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_dataNas; ?>"/>
-                      </div>
-                      <!-- sexo -->
-                      <div class="cell-md-6">
-                        <select name="fun_sexo"class="custom-select" id="inputGroupSelect02">
-      										<option selected><?php echo $registro->fun_sexo; ?></option>
-                          <option value="Masculino">Masculino</option>
-                          <option value="Feminino">Feminino</option>
-                        </select>
-                      </div>
-                    </div>
+				<div id="lateral" class="sumir">
+					<!-- LATERAL -->
+					<?php include('inc/container-lateral.php'); ?>
+					<!-- END LATERAL -->
+				</div><!-- lateral -->
 
-                    <div class="row row-form">
-                      <!-- rg -->
-                      <div class="cell-md-6 ajusta">
-                        <input name="fun_rg"type="text" class="form-control" placeholder="RG" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rg; ?>"/>
-                      </div>
-                      <!-- cpf -->
-                      <div class="cell-md-6">
-                        <input id="cpf" name="fun_cpf"type="text" class="form-control" placeholder="CPF" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cpf; ?>"/>
-                      </div>
-                    </div>
+			</div><!-- Conteiner-Conteudo -->
+		</div> <!-- Conteiner-Principal -->
 
-                    <div class="row row-form">
-                      <!-- telefone -->
-                      <div class="cell-md-6 ajusta">
-                        <input id="telefone" name="fun_telefone" type="text" class="form-control" placeholder="Telefone" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_telefone; ?>"/>
-                      </div>
-                      <!-- celular -->
-                      <div class="cell-md-6">
-                        <input id="celular" name="fun_celular" type="text" class="form-control" placeholder="Celular" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_celular; ?>"/>
-                      </div>
-                    </div>
-      							<!-- email -->
-      							<div class="form-group">
-      								<input id="email" name="fun_email" type="email" class="form-control" placeholder="Email" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_email; ?>"/>
-      							</div>
-                    <div class="row row-form">
-                      <!-- rua -->
-                      <div class="cell-md-6 ajusta">
-                        <input name="fun_rua"type="text" class="form-control" placeholder="Rua" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_rua; ?>"/>
-                      </div>
-                      <!-- numero -->
-                      <div class="cell-md-6">
-                        <input name="fun_numero"type="text" class="form-control" placeholder="Numero" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_numero; ?>"/>
-                      </div>
-                    </div>
+		<!--FOOTER -->
+		<?php include('inc/footer.php'); ?>
+		<!-- END FOOTER-->
 
-                    <div class="row row-form">
-                      <!-- bairro -->
-                      <div class="cell-md-6 ajusta">
-                        <input name="fun_bairro"type="text" class="form-control" placeholder="Bairro" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_bairro; ?>"/>
-                      </div>
-                      <!-- cep -->
-                      <div class="cell-md-6">
-                        <input name="fun_cep"type="text" class="form-control" placeholder="CEP" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cep; ?>"/>
-                      </div>
-                    </div>
+    <!-- CSS -->
+    <?php include('inc/js.php'); ?>
+    <!-- END-CSS -->
 
-                    <div class="row row-form">
-                      <!-- cidade -->
-                      <div class="cell-md-6 ajusta">
-                        <input name="fun_cidade"type="text" class="form-control" placeholder="Cidade" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_cidade; ?>"/>
-                      </div>
-                      <!-- estado -->
-                      <div class="cell-md-6">
-                        <input id="estado" name="fun_estado"type="text" class="form-control" placeholder="Estado" class="form-control" id="validationCustom01" required value="<?php echo $registro->fun_estado; ?>"/>
-                      </div>
-                    </div>
-
-                    <div class="botoes_form">
-                      <button type="submit" class="btn btn-outline-success btn-lg btn-block" onClick="validarSenha()">Atualizar Dados</button>
-                      <button type="reset" class="btn btn btn-outline-warning btn-lg btn-block">Resetar Campos</button>
-                    </div>
-
-      						</form>
-      					</div><!--Conteiner_Formulário-->
-              </section> <!-- sobre -->
-
-            </div><!-- Fim da div content -->
-          </div> <!--fim da pagebody -->
-
-          <div id="lateral" class="sumir">
-            <!-- LATERAL -->
-            <?php include('inc/container-lateral.php'); ?>
-            <!-- END LATERAL -->
-          </div><!-- lateral -->
-
-        </div><!-- Conteiner-Conteudo -->
-      </div> <!-- Conteiner-Principal -->
-
-      <!--FOOTER -->
-      <?php include('inc/footer.php'); ?>
-      <!-- END FOOTER-->
-
-      <!-- JS -->
-      <?php include('inc/js.php'); ?>
-      <!-- END JS -->
-
-  </body>
+	</body>
 </html>

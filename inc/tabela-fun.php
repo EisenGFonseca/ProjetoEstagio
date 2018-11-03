@@ -1,6 +1,6 @@
 <div id="container-contatos">
   <div class="table-responsive-xl">
-    <table class="table">
+    <table class="table" data-sortable>
       <thead class="thead-dark">
         <tr>
           <th scope="col">#</th>
