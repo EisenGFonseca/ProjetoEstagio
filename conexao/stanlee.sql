@@ -1,11 +1,15 @@
-drop database if exists stanlee;
-create database if not exists stanlee;
-	use stanlee;
+-- Criador: Eisen Guimarães da Fonseca
+-- Turma: 4º B Informática
+-- IFRO/2018
+
+DROP DATABASE IF EXISTS stanlee;
+CREATE DATABASE IF NOT EXISTS stanlee;
+	USE stanlee;
 
 	#Tabela funcionário
-	drop table if exists funcionario;
-	create table if not exists funcionario (
-		fun_cod int not null primary key auto_increment,
+	DROP TABLE IF EXISTS funcionario;
+	CREATE TABLE IF NOT EXISTS funcionario (
+		fun_cod INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		fun_nome VARCHAR(100),
 		fun_dataNas VARCHAR(100),
 		fun_sexo VARCHAR(100),
@@ -25,18 +29,18 @@ create database if not exists stanlee;
 	);
 
 	#Tabela Admin
-	drop table if exists admin;
-	create table if not exists admin (
-		adm_cod int not null primary key auto_increment,
+	DROP TABLE IF EXISTS admin;
+	CREATE TABLE IF NOT EXISTS admin (
+		adm_cod INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
 		adm_senha VARCHAR(100),
-		fun_cod_fk int not null,
-		foreign key (fun_cod_fk)
-		references funcionario (fun_cod)
-		on update cascade on delete restrict
+		fun_cod_fk INT NOT NULL,
+		FOREIGN KEY (fun_cod_fk)
+		REFERENCES funcionario (fun_cod)
+		ON UPDATE cascade ON DELETE restrict
 	);
 
-    insert into funcionario values (null, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
-    insert into admin values (null, 'admin', last_insert_id());
+    INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
+    INSERT INTO admin VALUES (NULL, 'admin', last_insert_id());
 
 DROP PROCEDURE IF EXISTS atualiza_fun;
 DELIMITER $$
@@ -77,5 +81,5 @@ $$ DELIMITER ;
 
 CALL atualiza_fun(3,'3', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Rio de janeiro','RR');
 
-select * from funcionario ;
-select * from funcionario inner join admin;
+SELECT * FROM funcionario ;
+SELECT * FROM funcionario INNER JOIN admin;

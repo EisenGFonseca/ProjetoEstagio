@@ -1,0 +1,2 @@
+1. EXECUTE O BANCO DE DADOS (/conexão/stanlee.sql) PARA QUE A PÁGINA FUNCIONE NORMALMENTE
+2. O LOGIN INICIAL É (admin / admin)

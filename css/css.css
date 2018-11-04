@@ -57,6 +57,7 @@ body.login{
   background-color: #ffffff;
   width: 100%;
   box-shadow: 0 0 10px 1px rgba(0,0,0,0.06);
+  padding-bottom: 50px;
 }
 
 #img{
@@ -81,6 +82,7 @@ body.login{
 #sub{
   margin: auto;
   background-color: white;
+  padding-bottom: 50px;
 }
 
 #servi {
@@ -219,7 +221,14 @@ hr.primary {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.fig1{
   background-image: url(http://www.amazonpicture.com.br/blog/wp-content/uploads/2016/08/Usando-tablets-4.jpeg);
+}
+
+.fig2{
+  background-image: url(https://www.ukubo.com/wp-content/uploads/2017/02/pic1.jpg);
 }
 
 .txt-img-fundo {
@@ -426,7 +435,7 @@ h5.sub_titulo{
 }
 
 .text-sobre{
-  padding-bottom: 80px;
+  /* padding-bottom: 80px; */
 }
 
 .esq-preta{
@@ -697,4 +706,7 @@ h2{
   #texto-index
   margin-top: -510px;
 }
+@media screen and (max-width:767px)
+.col-sm-4 {
+    display: none !important;
 }

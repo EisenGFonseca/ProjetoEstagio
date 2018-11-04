@@ -20,6 +20,7 @@
 
     <!-- CORPO -->
     <div id="Conteiner-Principal">
+    <!-- <div id="Conteiner-Principa"> -->
       <div class='imagem-capa capa-cadastrar'>
         <div class='texto-capa texto-sobre'>
           <h1 class="hello">Cadastrar Funcionário</h1>
