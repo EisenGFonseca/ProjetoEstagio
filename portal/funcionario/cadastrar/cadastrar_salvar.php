@@ -7,7 +7,7 @@
 
 		{
 			if(empty($_POST['fun_nome'])){
-				header('location:../lista.php?fun_cod=null');
+				header('location:../Lista/lista.php?fun_cod=null');
 			} else {
 
 				$fun_nome = $_POST['fun_nome'];
