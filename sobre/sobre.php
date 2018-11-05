@@ -39,7 +39,7 @@
               </div> <!-- col-lg-12 text-center -->
             </div> <!-- row row-ef -->
           </div> <!-- container -->
-          <div class="container ir">
+          <div class="ir">
             <div class="row row-ef text-center">
               <p class="text-sobre">
                 Seja bem vindo ao sistema <b>StanLee</b><br />
@@ -47,7 +47,7 @@
                 Uma das de suas características de destaque é a sua interface agradável, menus e submenus definidos que facilitam o trabalho do usuário.<br />
                 <b>Adminstradores</b> de pequenas e grandes empresas têm acesso aos dados cruciais de seus empregados cadastrados. </p>
               </div> <!-- row row-ef -->
-            </div> <!-- container ir -->
+            </div> <!-- ir -->
           </section> <!-- sobre -->
         </div> <!-- sub -->
 
