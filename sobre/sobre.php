@@ -11,11 +11,11 @@
     <!-- END-CSS -->
   </head>
 
-	<body class="body1">
+  <body class="body1">
 
-		<!-- MENU -->
-		<?php include('../inc/menu.php'); ?>
-		<!-- END-MENU -->
+    <!-- MENU -->
+    <?php include('../inc/menu.php'); ?>
+    <!-- END-MENU -->
 
 
     <!-- CORPO -->
@@ -50,7 +50,7 @@
             </div> <!-- ir -->
           </section> <!-- sobre -->
         </div> <!-- sub -->
-
+        
       </div><!-- Conteiner-Conteudo -->
     </div> <!-- Conteiner-Principal -->
 

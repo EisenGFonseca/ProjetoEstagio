@@ -1,50 +1,39 @@
-<?php include('../../acesso_portal/check_login.php');?>
-
 <?php
-
-	include('../../../conexao/conexao.php');
-
-	if(empty($_POST['fun_cod']) || empty($_POST['fun_nome'])){
-		header('location:../lista.php?fun_cod=null');
-	} else {
-
-		$fun_cod = filter_var($_POST['fun_cod']);
-
-		$sql = "CALL delete_fun($fun_cod)";
-
-		$delete = $conn->prepare($sql);
-
-		$delete->bindParam(':fun_cod', $fun_cod);
-
-		$delete->execute();
-	// var_dump ($delete->errorInfo());
-	// exit;
+	{
+		include('../acesso_portal/check_login.php');
 	}
-?>
+	{
+		include('../../../conexao/conexao.php');{
 
-<?php
+			if(empty($_POST['fun_cod']) || empty($_POST['fun_nome'])){
+				header('location:../lista.php?fun_cod=null');
+			} else {
 
-	include('../../../conexao/conexao.php');
+				$fun_cod = filter_var($_POST['fun_cod']);
 
-	$sql = "SELECT * FROM funcionario";
-	$consulta = $conn->prepare($sql);
-	$consulta->execute();
+				$sql = "CALL delete_fun($fun_cod)";
 
-	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+				$delete = $conn->prepare($sql);
 
+				$delete->bindParam(':fun_cod', $fun_cod);
+
+				$delete->execute();
+			}
+		}
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="UTF-8">
-    <title> Cadastrar </title>
+	<head>
+		<meta charset="UTF-8">
+		<title> Deletado </title>
 
-    <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
-    <!-- CSS -->
-    <?php include('../../../inc/css.php'); ?>
-    <!-- END-CSS -->
-  </head>
+		<link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
+		<!-- CSS -->
+		<?php include('../../../inc/css.php'); ?>
+		<!-- END-CSS -->
+	</head>
 
 	<body class="body1">
 

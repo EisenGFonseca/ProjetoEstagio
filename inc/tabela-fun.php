@@ -1,3 +1,13 @@
+<?php
+  include('../../conexao/conexao.php');
+
+  $sql = "CALL select_fun";
+  $consulta = $conn->prepare($sql);
+  $consulta->execute();
+
+  $registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+?>
+
 <div id="container-contatos">
   <div class="table-responsive-xl">
     <table class="table" data-sortable>

@@ -36,12 +36,22 @@ CREATE DATABASE IF NOT EXISTS stanlee;
 		FOREIGN KEY (fun_cod_fk)
 		REFERENCES funcionario (fun_cod)
 		ON UPDATE CASCADE
-        ON DELETE CASCADE 
+        ON DELETE CASCADE
 	);
 
-    INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
-    INSERT INTO admin VALUES (NULL, 'admin', last_insert_id());
+-- SELECIONA FUNCIONÁRIOS, EXCETO ADMIN
+DROP PROCEDURE IF EXISTS select_fun;
+DELIMITER $$
+	CREATE PROCEDURE select_fun (fun_cod INT)
+		BEGIN
+			SELECT *
+				FROM funcionario
+		              WHERE
+					funcionario.fun_cod <> 1;
+		END;
+$$ DELIMITER ;
 
+-- ATUALIZA A TABELA FUNCIONÁRIO APÓS EDIÇÃO
 DROP PROCEDURE IF EXISTS atualiza_fun;
 DELIMITER $$
 	CREATE PROCEDURE atualiza_fun ( fun_cod INT,
@@ -79,20 +89,21 @@ DELIMITER $$
 		END ;
 $$ DELIMITER ;
 
-
+-- DELETA FUNCIONÁRIO
 DROP PROCEDURE IF EXISTS delete_fun;
 DELIMITER $$
 	CREATE PROCEDURE delete_fun (fun_cod INT)
 		BEGIN
-			DROP 
+			DELETE
 				FROM funcionario
-                WHERE 
+                WHERE
 					funcionario.fun_cod = fun_cod;
 		END;
 $$ DELIMITER ;
 
+INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
+INSERT INTO admin VALUES (NULL, 'admin', last_insert_id());
 
-SELECT * FROM funcionario ;
+SELECT * FROM funcionario;
+SELECT * FROM admin;
 SELECT * FROM funcionario INNER JOIN admin;
-
-DELETE FROM funcionario WHERE fun_cod = 2;

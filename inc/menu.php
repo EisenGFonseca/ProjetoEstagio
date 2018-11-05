@@ -28,16 +28,16 @@
 		</a>
 
 		<ul class="app-bar-menu">
-			<a class="btn btn-light" href="/index.php">Início</a>
-			<a class="btn btn-light" href="/contato/contato.php">Contato</a>
-			<a class="btn btn-light" href="/sobre/sobre.php">Sobre</a>
-			<a class="btn btn-light" href="/portal/index_portal.php">Sistema</a>
+			<a class="btn btn-light" href="/index.php" title="Index">Início</a>
+			<a class="btn btn-light" href="/contato/contato.php" title="Contato">Contato</a>
+			<a class="btn btn-light" href="/sobre/sobre.php" title="Sobre o Sistema">Sobre</a>
+			<a class="btn btn-light" href="/portal/index_portal.php" title="Acesso Privado">Sistema</a>
 		</ul>
 
     <?php if(isset($_SESSION['user_nome'])) : ?>
 			<ul class="app-bar-menu ml-auto collapsed recuo-dir" style="">
-				<a class="btn btn-light" href="/portal/acesso_portal/logout.php"><b><?php echo $_SESSION['user_nome'] ?></b></a>
-				<a class="btn btn-danger" href="/portal/acesso_portal/logout.php">Sair</a>
+				<a class="btn btn-light" href="/portal/acesso_portal/logout.php" title="Sair"><b><?php echo $_SESSION['user_nome'] ?></b></a>
+				<a class="btn btn-danger" href="/portal/acesso_portal/logout.php" title="Sair">Sair</a>
 			</ul>
     <?php endif ?>
 	</div>

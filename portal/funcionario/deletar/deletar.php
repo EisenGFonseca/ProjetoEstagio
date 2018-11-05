@@ -1,21 +1,25 @@
-<?php include('../../acesso_portal/check_login.php');?>
-
 <?php
-	include('../../../conexao/conexao.php');
+	{
+		include('../../acesso_portal/check_login.php');
+	}
+	{
+		include('../../../conexao/conexao.php');{
+			
+			if(empty($_GET['fun_cod'])){
+				header('location:../lista.php');
+			}else{
 
-	if(empty($_GET['fun_cod'])){
-		header('location:../lista.php');
-	}else{
+				$fun_cod = filter_var($_GET['fun_cod']);
 
-		$fun_cod = filter_var($_GET['fun_cod']);
+				$sql = "SELECT * FROM funcionario INNER JOIN admin WHERE fun_cod = :fun_cod";
 
-		$sql = "SELECT * FROM funcionario INNER JOIN admin WHERE fun_cod = :fun_cod";
+				$consulta = $conn->prepare($sql);
+				$consulta->bindParam(':fun_cod', $fun_cod);
+				$consulta->execute();
 
-		$consulta = $conn->prepare($sql);
-		$consulta->bindParam(':fun_cod', $fun_cod);
-		$consulta->execute();
-
-		$registro = $consulta->fetch(PDO::FETCH_OBJ);
+				$registro = $consulta->fetch(PDO::FETCH_OBJ);
+			}
+		}
 	}
 ?>
 

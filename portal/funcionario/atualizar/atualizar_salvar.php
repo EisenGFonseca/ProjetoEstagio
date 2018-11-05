@@ -1,86 +1,74 @@
-<?php include('../../acesso_portal/check_login.php');?>
-
 <?php
-
-	include('../../../conexao/conexao.php');
-
-	if(empty($_POST['fun_cod']) || empty($_POST['fun_nome'])){
-		header('location:../lista.php?fun_cod=null');
-	} else {
-
-		$fun_cod = filter_var($_POST['fun_cod']);
-		$fun_nome = filter_var($_POST['fun_nome']);
-		$fun_dataNas = filter_var($_POST['fun_dataNas']);
-		$fun_sexo = filter_var($_POST['fun_sexo']);
-		$fun_rg = filter_var($_POST['fun_rg']);
-		$fun_cpf = filter_var($_POST['fun_cpf']);
-		$fun_telefone = filter_var($_POST['fun_telefone']);
-		$fun_celular = filter_var($_POST['fun_celular']);
-		$fun_email = filter_var($_POST['fun_email']);
-		$fun_rua = filter_var($_POST['fun_rua']);
-		$fun_numero = filter_var($_POST['fun_numero']);
-		$fun_bairro = filter_var($_POST['fun_bairro']);
-		$fun_cep = filter_var($_POST['fun_cep']);
-		$fun_cidade = filter_var($_POST['fun_cidade']);
-		$fun_estado = filter_var($_POST['fun_estado']);
-
-		$sql = "CALL atualiza_fun($fun_cod,
-														 '$fun_nome',
-														 '$fun_dataNas',
-														 '$fun_sexo',
-														 '$fun_rg',
-														 '$fun_cpf',
-														 '$fun_telefone',
-														 '$fun_celular',
-														 '$fun_email',
-														 '$fun_rua',
-														 '$fun_numero',
-														 '$fun_bairro',
-														 '$fun_cep',
-														 '$fun_cidade',
-														 '$fun_estado')";
-
-		$update = $conn->prepare($sql);
-
-		$update->bindParam(':fun_cod', $fun_cod);
-		$update->bindParam(':fun_nome', $fun_nome);
-		$update->bindParam(':fun_dataNas', $fun_dataNas);
-		$update->bindParam(':fun_sexo', $fun_sexo);
-		$update->bindParam(':fun_rg', $fun_rg);
-		$update->bindParam(':fun_cpf', $fun_cpf);
-		$update->bindParam(':fun_telefone', $fun_telefone);
-		$update->bindParam(':fun_celular', $fun_celular);
-		$update->bindParam(':fun_email', $fun_email);
-		$update->bindParam(':fun_rua', $fun_rua);
-		$update->bindParam(':fun_numero', $fun_numero);
-		$update->bindParam(':fun_bairro', $fun_bairro);
-		$update->bindParam(':fun_cep', $fun_cep);
-		$update->bindParam(':fun_cidade', $fun_cidade);
-		$update->bindParam(':fun_estado', $fun_estado);
-
-		$update->execute();
-	// 	var_dump ($update->errorInfo());
-	// 	exit;
+	{
+		include('../acesso_portal/check_login.php');
 	}
-?>
+	{
+		include('../../../conexao/conexao.php');{
+			if(empty($_POST['fun_cod']) || empty($_POST['fun_nome'])){
+				header('location:../lista.php?fun_cod=null');
+			} else {
 
-<?php
+				$fun_cod = filter_var($_POST['fun_cod']);
+				$fun_nome = filter_var($_POST['fun_nome']);
+				$fun_dataNas = filter_var($_POST['fun_dataNas']);
+				$fun_sexo = filter_var($_POST['fun_sexo']);
+				$fun_rg = filter_var($_POST['fun_rg']);
+				$fun_cpf = filter_var($_POST['fun_cpf']);
+				$fun_telefone = filter_var($_POST['fun_telefone']);
+				$fun_celular = filter_var($_POST['fun_celular']);
+				$fun_email = filter_var($_POST['fun_email']);
+				$fun_rua = filter_var($_POST['fun_rua']);
+				$fun_numero = filter_var($_POST['fun_numero']);
+				$fun_bairro = filter_var($_POST['fun_bairro']);
+				$fun_cep = filter_var($_POST['fun_cep']);
+				$fun_cidade = filter_var($_POST['fun_cidade']);
+				$fun_estado = filter_var($_POST['fun_estado']);
 
-	include('../../../conexao/conexao.php');
+				$sql = "CALL atualiza_fun($fun_cod,
+																 '$fun_nome',
+																 '$fun_dataNas',
+																 '$fun_sexo',
+																 '$fun_rg',
+																 '$fun_cpf',
+																 '$fun_telefone',
+																 '$fun_celular',
+																 '$fun_email',
+																 '$fun_rua',
+																 '$fun_numero',
+																 '$fun_bairro',
+																 '$fun_cep',
+																 '$fun_cidade',
+																 '$fun_estado')";
 
-	$sql = "SELECT * FROM funcionario";
-	$consulta = $conn->prepare($sql);
-	$consulta->execute();
+				$update = $conn->prepare($sql);
 
-	$registros = $consulta->fetchAll(PDO::FETCH_OBJ);
+				$update->bindParam(':fun_cod', $fun_cod);
+				$update->bindParam(':fun_nome', $fun_nome);
+				$update->bindParam(':fun_dataNas', $fun_dataNas);
+				$update->bindParam(':fun_sexo', $fun_sexo);
+				$update->bindParam(':fun_rg', $fun_rg);
+				$update->bindParam(':fun_cpf', $fun_cpf);
+				$update->bindParam(':fun_telefone', $fun_telefone);
+				$update->bindParam(':fun_celular', $fun_celular);
+				$update->bindParam(':fun_email', $fun_email);
+				$update->bindParam(':fun_rua', $fun_rua);
+				$update->bindParam(':fun_numero', $fun_numero);
+				$update->bindParam(':fun_bairro', $fun_bairro);
+				$update->bindParam(':fun_cep', $fun_cep);
+				$update->bindParam(':fun_cidade', $fun_cidade);
+				$update->bindParam(':fun_estado', $fun_estado);
 
+				$update->execute();
+			}
+		}
+	}
 ?>
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Cadastrar </title>
+    <title> Atualizado </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
     <!-- CSS -->

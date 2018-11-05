@@ -4,7 +4,7 @@
 	}
 
 	include('../../conexao/conexao.php');
-	$sql = "SELECT * FROM funcionario";
+	$sql = "CALL select_fun";
 	$consulta = $conn->prepare($sql);
 	$consulta->execute();
 
@@ -15,7 +15,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title> Lista </title>
+    <title> Funcionários cadastrados </title>
 
     <link rel="shortcut icon" href="//virtual.ifro.edu.br/jiparana/pluginfile.php/1/theme_essential/favicon/1535988245/favicon.ico">
     <!-- CSS -->
