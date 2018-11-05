@@ -109,5 +109,3 @@ INSERT INTO funcionario VALUES (NULL, 'Fred Fernando Felipe', '13/10/1998', 'Mas
 SELECT * FROM funcionario;
 SELECT * FROM admin;
 SELECT * FROM funcionario INNER JOIN admin;
-
-call select_fun;
