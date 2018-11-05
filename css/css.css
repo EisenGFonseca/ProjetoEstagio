@@ -14,7 +14,6 @@ body.login{
   background-size: cover;
 }
 
-
 /* Containers */
 #container-menu{
   width: 100%;
@@ -447,7 +446,7 @@ h5.sub_titulo{
   margin-bottom: 25px;
 }
 
-.recuo-esqu{
+.recuo-esq{
 	margin-left: 10px;
   margin-right: 0px;
 }
