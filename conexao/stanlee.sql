@@ -28,7 +28,6 @@ CREATE DATABASE IF NOT EXISTS stanlee;
 		fun_salario VARCHAR(100)
 	);
 
-	#Tabela Admin
 	DROP TABLE IF EXISTS admin;
 	CREATE TABLE IF NOT EXISTS admin (
 		adm_cod INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
@@ -36,7 +35,8 @@ CREATE DATABASE IF NOT EXISTS stanlee;
 		fun_cod_fk INT NOT NULL,
 		FOREIGN KEY (fun_cod_fk)
 		REFERENCES funcionario (fun_cod)
-		ON UPDATE cascade ON DELETE restrict
+		ON UPDATE CASCADE
+        ON DELETE CASCADE 
 	);
 
     INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
@@ -79,7 +79,20 @@ DELIMITER $$
 		END ;
 $$ DELIMITER ;
 
-CALL atualiza_fun(3,'3', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Rio de janeiro','RR');
+
+DROP PROCEDURE IF EXISTS delete_fun;
+DELIMITER $$
+	CREATE PROCEDURE delete_fun (fun_cod INT)
+		BEGIN
+			DROP 
+				FROM funcionario
+                WHERE 
+					funcionario.fun_cod = fun_cod;
+		END;
+$$ DELIMITER ;
+
 
 SELECT * FROM funcionario ;
 SELECT * FROM funcionario INNER JOIN admin;
+
+DELETE FROM funcionario WHERE fun_cod = 2;

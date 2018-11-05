@@ -27,21 +27,21 @@
 			$adm_senha = $_POST['adm_senha'];
 
 			$sql = "INSERT INTO funcionario VALUES (NULL, :fun_nome,
-				:fun_dataNas,
-				:fun_sexo,
-				:fun_rg,
-				:fun_cpf,
-				:fun_celular,
-				:fun_telefone,
-				:fun_email,
-				:fun_rua,
-				:fun_numero,
-				:fun_bairro,
-				:fun_cep,
-				:fun_cidade,
-				:fun_estado,
-				:fun_funcao,
-				:fun_salario);";
+																										:fun_dataNas,
+																										:fun_sexo,
+																										:fun_rg,
+																										:fun_cpf,
+																										:fun_celular,
+																										:fun_telefone,
+																										:fun_email,
+																										:fun_rua,
+																										:fun_numero,
+																										:fun_bairro,
+																										:fun_cep,
+																										:fun_cidade,
+																										:fun_estado,
+																										:fun_funcao,
+																										:fun_salario);";
 
 				if($fun_funcao == 'Administrador'){
 					$sql.= "INSERT INTO admin VALUES (null, :adm_senha, last_insert_id())";

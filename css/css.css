@@ -10,12 +10,10 @@ body.body1{
 }
 
 body.login{
-  margin: 0px;
-  padding: 0px;
-  background: url(https://i.redd.it/r0ad288kma8x.jpg)no-repeat;
-  webkit-background-size: cover;
+  background: url(https://observandooceudesinop.files.wordpress.com/2012/05/cc3a9u-de-sinop.png)repeat;
   background-size: cover;
 }
+
 
 /* Containers */
 #container-menu{
@@ -25,9 +23,10 @@ body.login{
 
 #Conteiner-Principal{
   width: 100%;
-  background-color: #f4f4f0;
+  background-color: #ffffff;
   margin-top: 0px;
-  padding-bottom: 40px;
+  padding-bottom: 35px;
+  margin-bottom: 40px;
 }
 
 #container-subtitulo {
@@ -278,17 +277,17 @@ hr.primary {
   padding: -1px 0;
 }
 
-.form-area input[type=submit]{
-  border:none;
-  height: 40px;
-  width: 100%;
-  outline: none;
-  font-size: 15px;
-  cursor:pointer;
-  border-radius: 20px;
-  color: #fff;
-  background-color: #dc3545;
-  border-color: #dc3545;
+.form-area input[type=submit] {
+    border: none;
+    height: 40px;
+    width: 100%;
+    outline: none;
+    font-size: 17px;
+    cursor: pointer;
+    border-radius: 20px;
+    color: #fff;
+    background-color: #dc3545;
+    border-color: #dc3545;
 }
 
 .form-area input[type=submit]:hover{
@@ -447,8 +446,13 @@ h5.sub_titulo{
   margin-bottom: 25px;
 }
 
-.recuo{
+.recuo-esqu{
 	margin-left: 10px;
+  margin-right: 0px;
+}
+
+.recuo-dir{
+	margin-right: 10px !important;
 }
 
 .barra-sub {
@@ -522,16 +526,22 @@ div.container_contato {
 
 /*Portalf*/
 
-.form-area{
-  position: absolute;
-  top: 340px;
-  left: 50%;
-  transform: translate(-50%,-50%);
-  width:400px;
-  height: 440px;
-  box-sizing: border-box;
-  background:rgba(0,0,0,0.5);
-  padding: 40px;
+
+element.style {
+}
+
+.form-area {
+    position: absolute;
+    top: 340px;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    height: 460px;
+    box-sizing: border-box;
+    background: rgba(0,0,0,0.5);
+    padding: 40px 30px 40px 30px;
+    border: solid #ffffff14;
+    border-radius: 6px;
 }
 
 h2{
@@ -700,9 +710,6 @@ h2{
 
 @media screen and (max-width:767px)
 {
-  .form-area{
-    width: 75%;
-  }
   #texto-index
   margin-top: -510px;
 }

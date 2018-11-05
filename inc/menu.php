@@ -9,7 +9,7 @@
 
     <?php if(isset($_SESSION['user_nome'])) : ?>
       <div class="aparece">
-    <div class="recuo" style="margin-right: 0px;">
+    <div class="recuo-esq">
 		<i class="fas fa-bars fa-2x menu-open"></i>
 		</div>
 		<div class="side-menu-wrapper">
@@ -35,7 +35,7 @@
 		</ul>
 
     <?php if(isset($_SESSION['user_nome'])) : ?>
-			<ul class="app-bar-menu ml-auto collapsed" style="">
+			<ul class="app-bar-menu ml-auto collapsed recuo-dir" style="">
 				<a class="btn btn-light" href="/portal/acesso_portal/logout.php"><b><?php echo $_SESSION['user_nome'] ?></b></a>
 				<a class="btn btn-danger" href="/portal/acesso_portal/logout.php">Sair</a>
 			</ul>
