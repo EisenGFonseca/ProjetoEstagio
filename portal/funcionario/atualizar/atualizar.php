@@ -1,6 +1,6 @@
 <?php
 	{
-		include('../acesso_portal/check_login.php');
+		include('../../acesso_portal/check_login.php');
 	}
 	{
 		include('../../../conexao/conexao.php');{

@@ -1,5 +1,5 @@
 <?php
-  include('../../conexao/conexao.php');
+  include('../../../conexao/conexao.php');
 
   $sql = "CALL select_fun";
   $consulta = $conn->prepare($sql);

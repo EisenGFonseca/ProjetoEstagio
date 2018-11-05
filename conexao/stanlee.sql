@@ -42,7 +42,7 @@ CREATE DATABASE IF NOT EXISTS stanlee;
 -- SELECIONA FUNCIONÁRIOS, EXCETO ADMIN
 DROP PROCEDURE IF EXISTS select_fun;
 DELIMITER $$
-	CREATE PROCEDURE select_fun (fun_cod INT)
+	CREATE PROCEDURE select_fun()
 		BEGIN
 			SELECT *
 				FROM funcionario
@@ -101,9 +101,13 @@ DELIMITER $$
 		END;
 $$ DELIMITER ;
 
-INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00)0.0000-0000', '(00)0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
+INSERT INTO funcionario VALUES (NULL, 'ROOT', '00/00/0000', 'Masculino','000.000.000-00', '0000000 SSP/**', '(00) 0000-0000', '(00) 0.0000-0000', 'admin', 'Rua Bacon', '0000', 'Residencial', '00.000-000', 'Jaru','RR', 'Administrador', '0.000,00');
 INSERT INTO admin VALUES (NULL, 'admin', last_insert_id());
+
+INSERT INTO funcionario VALUES (NULL, 'Fred Fernando Felipe', '13/10/1998', 'Masculino','123.456.789-99', '1245455 SSP/RO', '(69) 4002-8922', '(69)9.9280-7070', 'admin', 'Rua Elispanha', '1469', 'Bairro Primavera', '89.700-682', 'Jipa-City','RO', 'Sub-Gerente', '943,58');
 
 SELECT * FROM funcionario;
 SELECT * FROM admin;
 SELECT * FROM funcionario INNER JOIN admin;
+
+call select_fun;
