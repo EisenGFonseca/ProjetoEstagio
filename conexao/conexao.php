@@ -2,8 +2,8 @@
 
 	$HOST = "localhost";
 
-	$USER = "EisenFonseca";
-	$PASSWORD = "warmachine2";
+	$USER = "root";
+	$PASSWORD = "";
 
 	$DATABASE = "stanlee";
 
