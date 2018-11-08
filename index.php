@@ -66,7 +66,7 @@
                       </div> <!-- col-md-4 col-sm-4 -->
                       <!-- . -->
 
-                      <!-- Portal de pais e alunos -->
+                      <!-- Site Seguro -->
                       <div class="col-md-4 col-sm-4">
                         <i class="fa fa-lock fa-4x" aria-hidden="true"></i>
                         <div class="service-box">
